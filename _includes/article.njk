@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: Roger Oriol
+---
+
+<article>
+  <h2>{{title}}</h2>
+  <time datetime="{{ page.date | htmlDateString }}">{{page.date | readableDate}}</time><br />
+  <span class="read-time">{{ (content | readTime) }} minute read</span>
+  <a href="/articles/{{category}}"><span class="tag">{{collections.category | getCategoryTitle(category) }}</span></a>
+  <h3>{{ subtitle }}</h3>
+  {{ content | safe }}
+</article>

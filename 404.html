@@ -1,0 +1,161 @@
+---
+title: Blog | Roger Oriol
+pagination:
+  data: collections.article
+  size: 4
+  alias: articles
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+
+    <base href="/">
+
+    <meta name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Discussing topics on web development, data architecture, software architecture and much more.">
+    <meta name="theme-color" content="#33d">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="{{title}}">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Imports an icon to represent the document. -->
+    <!-- <link rel="icon" href="assets/icons/icon_24.png" type="image/x-icon"> -->
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"></noscript>
+
+    <!--<script type="module" src="dist/main.umd.js"></script>-->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+
+    <style>
+      body {
+        background: #fefefe;
+        color: #222;
+        font-family: 'Roboto', sans-serif;
+        padding: 1rem;
+      }
+      #main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      h1 {
+        color: #000;
+        font-size: 2em;
+      }
+      h2 {
+        font-weight: normal;
+        margin-top: 2em;
+      }
+      header, main {
+        width: 900px;
+        width: max(900px, 55vw);
+        max-width: 100vw;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      header #icons {
+        display: flex;
+      }
+      header #icons img {
+        width: 24px;
+        margin: 0 8px;
+        height: 100%;
+      }
+      p {
+        color: #615b5b;
+        text-align: justify;
+      }
+      a {
+        text-decoration: none;
+      }
+      ul {
+        padding: 0;
+        display: flex;
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      li.blog-entry-summary {
+        flex: 1;
+        list-style-type: none;
+        display: flex;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        padding-bottom: 1rem;
+        margin-right: 1em;
+      }
+      li.blog-entry-summary:last-child {
+        margin-right: 0;
+      }
+      li.blog-entry-summary > img {
+        cursor: pointer;
+        object-fit: cover;
+        flex: 1;
+      }
+      li.blog-entry-summary div {
+        margin: 1rem;
+      }
+      li.blog-entry-summary div:first-of-type {
+        flex: 6;
+        cursor: pointer;
+        min-width: 200px;
+      }
+      li.blog-entry-summary h2 {
+        margin-top: 0;
+      }
+      li.blog-entry-summary a {
+        font-weight: bold;
+      }
+      li.blog-entry-summary a:hover, li.blog-entry-summary a:visited {
+        color: #5a5a5a;
+      }
+      .more {
+        color: #1a1a1a;
+        font-weight: bold;
+      }
+      .more:hover, .more:visited {
+        color: #5a5a5a;
+      }
+      time {
+        color: #615b5b;
+      }
+      span.read-time {
+        color: #615b5b;
+        margin-bottom: 8px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-container">
+      <main>
+        <h3>There is nothing here. <a href='/'>Go back</a></h3>
+      </main>
+    </div>
+  </body>
+</html>

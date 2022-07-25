@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+
+    <base href="/">
+
+    <meta name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Discussing topics on web development, data architecture, software architecture and much more.">
+    <meta name="theme-color" content="#33d">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="{{title}}">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="apple-touch-icon" href="assets/icons/apple/apple-launchericon-192-192.png">
+
+    <!-- Imports an icon to represent the document. -->
+    <!-- <link rel="icon" href="assets/icons/icon_24.png" type="image/x-icon"> -->
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"></noscript>
+
+    <link defer href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+
+    <!--<script type="module" src="dist/main.umd.js"></script>-->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+
+    <style>
+      body {
+        background: #fefefe;
+        color: #222;
+        font-family: 'Roboto', sans-serif;
+        padding: 1rem;
+        line-height: 1.8;
+      }
+      #main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      h1 {
+        color: #000;
+        font-size: 2em;
+      }
+      h2 {
+        font-weight: normal;
+        margin-top: 2em;
+        font-size: 1.5em;
+      }
+      header, main {
+        width: 900px;
+        width: max(900px, 55vw);
+        max-width: 100vw;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      header #icons {
+        display: flex;
+      }
+      header #icons img {
+        width: 24px;
+        margin: 0 8px;
+        height: 100%;
+      }
+      p {
+        text-align: justify;
+        font-size: 1.2em;
+      }
+      a {
+        text-decoration: none;
+      }
+      time {
+        color: #615b5b;
+      }
+      span.read-time {
+        color: #615b5b;
+        margin-bottom: 8px;
+        display: block;
+      }
+      p {
+        color: #615b5b;
+      }
+      ul {
+        padding: 0;
+        display: flex;
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      li.blog-entry-summary {
+        flex: 1;
+        list-style-type: none;
+        display: flex;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        padding-bottom: 1rem;
+        margin-right: 1em;
+      }
+      li.blog-entry-summary:last-child {
+        margin-right: 0;
+      }
+      li.blog-entry-summary > img {
+        cursor: pointer;
+        object-fit: contain;
+        flex: 1;
+        margin: 0 1em;
+      }
+      li.blog-entry-summary div {
+        margin: 1rem;
+      }
+      li.blog-entry-summary div:first-of-type {
+        flex: 6;
+        cursor: pointer;
+        min-width: 200px;
+      }
+      li.blog-entry-summary h2 {
+        margin-top: 0;
+        font-size: 2em;
+        margin-bottom: 0.5em;
+      }
+      li.blog-entry-summary a {
+        font-weight: bold;
+      }
+      li.blog-entry-summary a:hover, li.blog-entry-summary a:visited {
+        color: #5a5a5a;
+      }
+      .more {
+        color: #1a1a1a;
+        font-weight: bold;
+      }
+      .more:hover, .more:visited {
+        color: #5a5a5a;
+      }
+      ul.pagination li {
+        list-style-type: none;
+        margin-left: 8px;
+      }
+      ul.pagination li a.current {
+        font-weight: bold;
+      }
+      .tag {
+        display: inline-block;
+        background-color: #246ea0;
+        padding: 2px 8px;
+        border-radius: 1em;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 2px;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+      article h2 {
+        font-size: 3em;
+        margin-block-start: 1em;
+        margin-block-end: 0.5em;
+      }
+      article h3 {
+        font-size: 1.5em;
+      }
+      article p {
+        color: #222;
+      }
+    </style>
+    <link rel="preload" href="styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles/main.css"></noscript>
+  </head>
+  <body>
+    <div id="main-container">
+      <header>
+        <div>
+          <a href="/"><h1>Roger Oriol</h1></a>
+        </div>
+        <div id="icons">
+          <a target="blank" href="https://github.com/rogiia"><img src="assets/icons/github.svg" title="Github" alt="Github" /></a>
+          <a target="blank" href="feed.xml"><img src="assets/icons/rss.svg" title="RSS" alt="RSS" /></a>
+          <a target="blank" href="https://twitter.com/rogiia"><img src="assets/icons/twitter.svg" title="Twitter" alt="Twitter" /></a>
+          <a href="mailto:rogeroriwd@gmail.com"><img src="assets/icons/email.svg" title="Email" alt="Email" /></a>
+        </div>
+      </header>
+      <main>
+        {{ content | safe }}
+      </main>
+    </div>
+  </body>
+</html>
