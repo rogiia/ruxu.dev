@@ -25,5 +25,5 @@ jobs:
 
       - name: Trigger Amplify Deploy Job
         run: |
-            URL="${{  }}"
+            URL="${{ secrets.WEBHOOK_URL }}"
             curl -X POST -d {} "$URL" -H "Content-Type: application/json"
