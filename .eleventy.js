@@ -12,6 +12,7 @@ module.exports = function(eleventyConfig) {
   // Copy the `assets` and `styles` folders to the output
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("styles");
+  eleventyConfig.addPassthroughCopy("scripts");
   eleventyConfig.addPassthroughCopy("manifest.json");
   eleventyConfig.addPassthroughCopy("service-worker.js");
   eleventyConfig.addPassthroughCopy("favicon.ico");
