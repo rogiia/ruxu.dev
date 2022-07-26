@@ -4,9 +4,10 @@ class ShareButton extends HTMLElement {
   }
 
   connectedCallback() {
+    const title = document.querySelector('h2').innerText;
     const shareData = {
-      title: document.querySelector('h2').innerText,
-      text: document.querySelector('h3').innerText,
+      title: title,
+      text: title,
       url: window.location.href
     };
 
