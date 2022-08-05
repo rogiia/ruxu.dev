@@ -9,6 +9,8 @@ tags:
   - article
   - languages-and-frameworks
 ---
+![Bun logo]({{image}})
+
 
 In recent years, the web development landscape has discovered that, while super stylized websites and web applications with tons of very rich interactions made with Javascript might be appealing to users, the loading time of the page can be a hundred times more influential to the user's perspective of the experience. As a result, there has been a ton of effort to reduce the loading time metrics of websites. Many frameworks and patterns have (re-)emerged to give solutions to this problem, like Server-Side Rendering and Static Site Generation.
 
