@@ -1,64 +1,78 @@
-// Names of the two caches used in this version of the service worker.
-// Change to v2, etc. when you update any of the local resources, which will
-// in turn trigger the install event again.
-const PRECACHE = 'precache-v1';
-const RUNTIME = 'runtime';
+// the cache version gets updated every time there is a new deployment
+const CACHE_VERSION = 1;
+const CURRENT_CACHE = `main-${CACHE_VERSION}`;
 
-// A list of local resources we always want to be cached.
-const PRECACHE_URLS = [
+// these are the routes we are going to cache for offline support
+const cacheFiles = [
+  '/',
   'index.html',
-  './', // Alias for index.html
-  'manifest.json'
+  'manifest.json',
+  'scripts/share-button.js',
+  '404/index.html',
+  'assets/icons/github.svg',
+  'assets/icons/rss.svg',
+  'assets/icons/twitter.svg',
+  'assets/icons/email.svg'
 ];
 
-// The install handler takes care of precaching the resources we always need.
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(PRECACHE)
-      .then(cache => cache.addAll(PRECACHE_URLS))
-      .then(self.skipWaiting())
-  );
-});
-
-// The activate handler takes care of cleaning up old caches.
-self.addEventListener('activate', event => {
-  const currentCaches = [PRECACHE, RUNTIME];
-  event.waitUntil(
+// on activation we clean up the previously registered service workers
+self.addEventListener('activate', evt =>
+  evt.waitUntil(
     caches.keys().then(cacheNames => {
-      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-    }).then(cachesToDelete => {
-      return Promise.all(cachesToDelete.map(cacheToDelete => {
-        return caches.delete(cacheToDelete);
-      }));
-    }).then(() => self.clients.claim())
-  );
-});
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CURRENT_CACHE) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  )
+);
 
-// The fetch handler serves responses for same-origin resources from a cache.
-// If no response is found, it populates the runtime cache with the response
-// from the network before returning it to the page.
-self.addEventListener('fetch', event => {
-  if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') {
-    return;
-  }
+// on install we download the routes we want to cache for offline
+self.addEventListener('install', evt =>
+  evt.waitUntil(
+    caches.open(CURRENT_CACHE).then(cache => {
+      return cache.addAll(cacheFiles);
+    })
+  )
+);
 
-  // Skip cross-origin requests, like those for Google Analytics.
-  if (event.request.url.startsWith(self.location.origin)) {
-    event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
+// fetch the resource from the network
+const fromNetwork = (request, timeout) =>
+  new Promise((fulfill, reject) => {
+    const timeoutId = setTimeout(reject, timeout);
+    fetch(request).then(response => {
+      clearTimeout(timeoutId);
+      fulfill(response);
+      update(request);
+    }, reject);
+  });
 
-        return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
-            // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
-            });
-          });
-        });
-      })
+// fetch the resource from the browser cache
+const fromCache = request =>
+  caches
+    .open(CURRENT_CACHE)
+    .then(cache =>
+      cache
+        .match(request)
+        .then(matching => matching || cache.match('/404/index.html'))
     );
-  }
+
+// cache the current page to make it available for offline
+const update = request =>
+  caches
+    .open(CURRENT_CACHE)
+    .then(cache =>
+      fetch(request).then(response => cache.put(request, response))
+    );
+
+// general strategy when making a request (eg if online try to fetch it
+// from the network with a timeout, if something fails serve from cache)
+self.addEventListener('fetch', evt => {
+  evt.respondWith(
+    fromNetwork(evt.request, 10000).catch(() => fromCache(evt.request))
+  );
+  evt.waitUntil(update(evt.request));
 });

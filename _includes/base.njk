@@ -101,6 +101,13 @@
       ul {
         padding: 0;
         display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+      }
+      @supports not (gap: 1em) {
+        ul li.blog-entry-summary {
+          margin-right: 1em;
+        }
       }
       .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -118,10 +125,7 @@
         margin-bottom: 1rem;
         flex-wrap: wrap;
         padding: 1rem;
-        margin-right: 1em;
-      }
-      li.blog-entry-summary:last-child {
-        margin-right: 0;
+        min-width: 200px;
       }
       li.blog-entry-summary > img {
         cursor: pointer;

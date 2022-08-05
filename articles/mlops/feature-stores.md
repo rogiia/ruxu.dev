@@ -4,14 +4,14 @@ title: Feature Store - Why do you need one?
 date: Last Modified
 subtitle: "How to set up a data architecture that saves your data scientists time and effort."
 category: mlops
-image: assets/images/paint.jpg
+image: assets/images/paint_sm.jpg
 tags:
   - article
   - mlops
 ---
 
 <figure>
-<img alt="Painting desk" src="assets/images/paint.jpg" />
+<img style="aspect-ratio: 3/2" alt="Painting desk" src="assets/images/paint.jpg" />
 <figcaption>Painter photo created by rawpixel.com - www.freepik.com</figcaption>
 </figure>
 
