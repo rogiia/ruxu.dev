@@ -39,3 +39,14 @@ class ShareButton extends HTMLElement {
 }
 
 customElements.define('share-button', ShareButton);
+
+let lastSelection = '';
+document.addEventListener('mouseup', () => {
+  const selection = window.getSelection();
+  if (selection.type === 'Range') {
+    if (selection.toString() !== lastSelection) {
+      lastSelection = selection.toString();
+      // TODO: Share selection component
+    }
+  }
+});

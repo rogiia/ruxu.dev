@@ -1,6 +1,8 @@
 ---
 layout: base.njk
 title: Blog | Roger Oriol
+image: assets/icons/chrome/chrome-installprocess-128-128.png
+subtitle: Discussing topics on web development, data architecture, software architecture and much more.
 pagination:
   data: collections.article
   size: 4
@@ -11,10 +13,10 @@ pagination:
 
 <h2>Recent posts</h2>
 <ul>
-  {%- for article in articles -%}
+  {%- for article in articles | reverse -%}
   <li class="blog-entry-summary card">
     {% if article.data.image %}
-    <img width="128" src="{{article.data.image}}" alt="{{article.data.title}}" title="{{article.data.title}}" onclick="window.location='{{article.url}}'" tabindex="0" />
+    <img width="200" src="{{article.data.image}}" alt="{{article.data.title}}" title="{{article.data.title}}" onclick="window.location='{{article.url}}'" tabindex="0" />
     {% endif %}
     <div tabindex="0" role="link" onclick="window.location='{{article.url}}'" aria-label="{{article.data.title}}">
       <time datetime="{{ article.date | htmlDateString }}">{{article.date | readableDate}}</time>
@@ -32,10 +34,10 @@ pagination:
 {%- for category in collections.category -%}
 <h2>{{category.data.title}}</h2>
 <ul>
-  {%- for article in collections[category.data.slug] -%}
+  {%- for article in collections[category.data.slug] | reverse -%}
   <li class="blog-entry-summary card">
     {% if article.data.image %}
-    <img width="128" src="{{article.data.image}}" alt="{{article.data.title}}" onclick="window.location='{{article.url}}'" title="{{article.data.title}}" tabindex="0" />
+    <img width="200" src="{{article.data.image}}" alt="{{article.data.title}}" onclick="window.location='{{article.url}}'" title="{{article.data.title}}" tabindex="0" />
     {% endif %}
     <div tabindex="0" role="link" onclick="window.location='{{article.url}}'" aria-label="{{article.data.title}}">
       <time datetime="{{ article.date | htmlDateString }}">{{article.date | readableDate}}</time>

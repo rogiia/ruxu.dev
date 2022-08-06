@@ -8,7 +8,7 @@ title: Category
 <h2>{{title}}</h2>
 {% endif %}
 <ul>
-  {%- for article in articles -%}
+  {%- for article in articles | reverse -%}
   <li class="blog-entry-summary card">
     {% if article.data.image %}
     <img width="128" src="{{article.data.image}}" alt="{{article.data.title}}" onclick="window.location='{{article.url}}'" title="{{article.data.title}}" tabindex="0" />

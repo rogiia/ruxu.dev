@@ -3,6 +3,21 @@ layout: base.njk
 title: Roger Oriol
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "articleSection": "{{category}}",
+  "speakable": "article",
+  "abstract": "{{subtitle}},
+  "headline": "Analyzing Google Search traffic drops",
+  "datePublished": "{{ page.date | htmlDateString }}",
+  "dateModified": "{{ page.date | htmlDateString }}",
+  "image": "https://ruxu.dev{{image}}",
+  "url": "https://ruxu.dev{{page.url}}"
+}
+</script>
+
 <style>
 share-button button, share-button a {
   color: #615b5b;
@@ -13,6 +28,10 @@ share-button button, share-button a {
 }
 share-button button:hover {
   color: #000;
+}
+::selection {
+  color: white;
+  background: #2980b9;
 }
 </style>
 

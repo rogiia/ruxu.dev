@@ -8,12 +8,25 @@
 
     <meta name="viewport"
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Discussing topics on web development, data architecture, software architecture and much more.">
+    <meta name="description" content="{{subtitle}}">
     <meta name="theme-color" content="#33d">
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:type" content="{% if tags %}article{% else %}website{% endif %}" />
+    <meta property="og:url" content="https://ruxu.dev{{page.url}}" />
+    <meta property="og:image" content="https://ruxu.dev{{image}}" />
+    {% if tags %}
+    <meta property="og:published_time" content="{{ page.date | htmlDateString }}" />
+    <meta property="og:modified_time" content="{{ page.date | htmlDateString }}" />
+    <meta property="og:author" content="Roger Oriol" />
+    <meta property="og:section" content="{{category}}" />
+    <meta property="og:tag" content="{{ tags.join(',') }}" />
+    {% endif %}
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="{{title}}">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="canonical" href="https://ruxu.dev{{page.url}}" />
 
     <link rel="apple-touch-icon" href="assets/icons/apple/apple-launchericon-192-192.png">
 
@@ -87,6 +100,10 @@
       a {
         text-decoration: none;
       }
+      figure {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+      }
       time {
         color: #615b5b;
       }
@@ -132,6 +149,7 @@
         object-fit: contain;
         flex: 1;
         margin: 0 1em;
+        min-width: 200px;
       }
       li.blog-entry-summary div {
         margin: 1rem;
@@ -212,5 +230,14 @@
         {{ content | safe }}
       </main>
     </div>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DSHP6ZV5R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-1DSHP6ZV5R');
+    </script>
   </body>
 </html>
