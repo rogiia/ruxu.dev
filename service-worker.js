@@ -1,5 +1,5 @@
 // the cache version gets updated every time there is a new deployment
-const CACHE_VERSION = 1;
+const CACHE_VERSION = 2;
 const CURRENT_CACHE = `main-${CACHE_VERSION}`;
 
 // these are the routes we are going to cache for offline support
@@ -65,7 +65,7 @@ const update = request =>
   caches
     .open(CURRENT_CACHE)
     .then(cache =>
-      fetch(request).then(response => cache.put(request, response))
+      fetch(request.url).then(response => cache.put(request, response))
     );
 
 // general strategy when making a request (eg if online try to fetch it
