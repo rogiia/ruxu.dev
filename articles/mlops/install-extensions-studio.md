@@ -21,7 +21,9 @@ To enrich SageMaker Studio with the features that you need, you can install exte
 
 You can use the **Extension Manager**, found in the menu on the left. It has a puzzle piece icon. Inside the Extension Manager, you can check the already installed extensions. You can also search for extensions if you write the name in the search bar. When you have found the extension you want to install, click the "Install" button. After installing all the needed extensions, restart the JupyterLab by refreshing the page. You should now be able to use them.
 
-![SageMaker Studio Extension Manager](assets/images/sagemaker_extensions.webp)
+<figure style="display: flex">
+<img alt="SageMaker Studio Extension Manager" src="assets/images/sagemaker_extensions.webp" style="width: 450px; margin: 0 auto" width="450" height="750" />
+</figure>
 
 Another method to install extensions is using the **Jupyter CLI tool**. For this method, you will need to know the name of the extension beforehand. Open a terminal inside the Studio and type the following commands:
 
