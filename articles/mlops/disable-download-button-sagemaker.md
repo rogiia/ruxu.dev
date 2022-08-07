@@ -5,6 +5,7 @@ date: Last Modified
 subtitle: If you want to ensure that your data scientists' cloud environment is secure from data leaks, remove this feature from SageMaker
 category: mlops
 image: assets/images/security.webp
+publishedDate: 2022-08-06
 tags:
   - article
   - mlops
@@ -79,3 +80,5 @@ $LCC_CONTENT is a string with the content of the script described before. Then, 
 ```bash
 aws sagemaker create-user-profile --domain-id <DOMAIN-ID> \ --user-profile-name <USER-PROFILE-NAME> \ --region <REGION> \ --user-settings '{ "JupyterServerAppSettings": {   "LifecycleConfigArns":     ["<LIFECYCLE-CONFIGURATION-ARN-LIST>"]   } }'
 ```
+
+From now on, every time a data scientist opens their instance of SageMaker Studio, it should never display a download button. This efectively blocks them from downloading any files located in their Studio, as long as they are not able to revert these changes themselves from their terminal. Also, note that disabling the download plugin only removes all the download buttons from the interface. This does not mean that if there are other means of downloading files those are also blocked.

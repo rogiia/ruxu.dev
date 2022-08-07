@@ -5,6 +5,7 @@ date: Last Modified
 subtitle: "How to set up a data architecture that saves your data scientists time and effort."
 category: mlops
 image: assets/images/paint_sm.jpg
+publishedDate: 2022-08-05
 tags:
   - article
   - mlops

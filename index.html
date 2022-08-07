@@ -13,13 +13,13 @@ pagination:
 
 <h2>Recent posts</h2>
 <ul class="blog-entry-list">
-  {%- for article in articles | reverse -%}
+  {%- for article in articles | sort(true, true, "data.publishedDate") -%}
   <li class="blog-entry-summary card">
     {% if article.data.image %}
     <img width="200" src="{{article.data.image}}" alt="{{article.data.title}}" title="{{article.data.title}}" onclick="window.location='{{article.url}}'" tabindex="0" />
     {% endif %}
     <div tabindex="0" role="link" onclick="window.location='{{article.url}}'" aria-label="{{article.data.title}}">
-      <time datetime="{{ article.date | htmlDateString }}">{{article.date | readableDate}}</time>
+      <time datetime="{{ article.data.publishedDate | htmlDateString }}">{{article.data.publishedDate | readableDate}}</time>
       <h2>{{article.data.title}}</h2>
       <p>{{article.data.subtitle}}</p>
       <a href="{{article.url}}">Read more...</a>
@@ -34,13 +34,13 @@ pagination:
 {%- for category in collections.category -%}
 <h2>{{category.data.title}}</h2>
 <ul class="blog-entry-list">
-  {%- for article in collections[category.data.slug] | reverse -%}
+  {%- for article in collections[category.data.slug] | sort(true, true, "data.publishedDate") -%}
   <li class="blog-entry-summary card">
     {% if article.data.image %}
     <img width="200" src="{{article.data.image}}" alt="{{article.data.title}}" onclick="window.location='{{article.url}}'" title="{{article.data.title}}" tabindex="0" />
     {% endif %}
     <div tabindex="0" role="link" onclick="window.location='{{article.url}}'" aria-label="{{article.data.title}}">
-      <time datetime="{{ article.date | htmlDateString }}">{{article.date | readableDate}}</time>
+      <time datetime="{{ article.data.publishedDate | htmlDateString }}">{{article.data.publishedDate | readableDate}}</time>
       <h2>{{article.data.title}}</h2>
       <p>{{article.data.subtitle}}</p>
       <a href="{{article.url}}">Read more...</a>

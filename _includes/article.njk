@@ -11,7 +11,7 @@ title: Roger Oriol
   "speakable": "article",
   "abstract": "{{subtitle}},
   "headline": "Analyzing Google Search traffic drops",
-  "datePublished": "{{ page.date | htmlDateString }}",
+  "datePublished": "{{ publishedDate | htmlDateString }}",
   "dateModified": "{{ page.date | htmlDateString }}",
   "image": "https://ruxu.dev{{image}}",
   "url": "https://ruxu.dev{{page.url}}"
@@ -62,7 +62,7 @@ share-button button:hover {
     </button>
   </share-button>
   <br />
-  <time datetime="{{ page.date | htmlDateString }}">{{page.date | readableDate}}</time><br />
+  <time datetime="{{ publishedDate | htmlDateString }}">{{publishedDate | readableDate}}</time><br />
   <span class="read-time">{{ (content | readTime) }} minute read</span>
   <a href="/articles/{{category}}"><span class="tag">{{collections.category | getCategoryTitle(category) }}</span></a>
   <h3>{{ subtitle }}</h3>
