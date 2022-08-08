@@ -5,7 +5,7 @@ date: Last Modified
 subtitle: "What is Bun, the new hot thing in the Javascript world? Why is it so fast and can I use it for my projects?"
 category: languages-and-frameworks
 image: https://camo.githubusercontent.com/cc7b5924f05d4f0743ce6d7969405545cb997e58dec5f9d5f8718011c7d446ae/68747470733a2f2f62756e2e73682f6c6f676f4032782e706e67
-publishedDate: 2022-08-01
+publishedDate: 2022-07-26
 tags:
   - article
   - languages-and-frameworks
@@ -143,7 +143,7 @@ export default {
 
 ### What can I use Bun for?
 
-Let's be clear: **Bun is not ready for production applications**. At the time of writing this article, the last version of Bun is the beta version 0.1.5. It still has a small ecosystem and community, many missing APIs, and some bugs and performance issues in edge cases. Nevertheless, this is a temporary problem; Jarred and the community are working tirelessly to build all the missing tools and APIs and fix all bugs. Also, libraries specifically built for Bun are appearing constantly. Probably, in the not-so-distant future, Bun will be a great tool to be used in production environments, so it would be wise to keep an eye on it.
+Let's be clear: **Bun is not ready for production applications**. At the time of writing this article, the last version of Bun is the beta version 0.1.5. It still has a small ecosystem and community, many missing APIs, and some bugs and performance issues in edge cases. Nevertheless, this is a temporary problem; Jarred and the community are working tirelessly to build all the missing tools and APIs and fix all bugs. When first writing this article, I described some problems like performance spikes and illegal hardware instructions. But these problems are being solved so quickly that this article would be constantly out-of-date. Also, libraries specifically built for Bun are appearing constantly. Probably, in the not-so-distant future, Bun will be a great tool to be used in production environments, so it would be wise to keep an eye on it.
 
 That doesn't mean that you shouldn't use Bun right now. If you need to build **an application that is not production-sensitive** it could be the way to go. If you want to build a quick proof-of-concept app and don't want to fiddle with Typescript and transpiler libraries it could be a great solution. Another possible use could be if you need to write a script that needs to perform at it's best and you cannot be bothered to write it in Rust or C.
 
