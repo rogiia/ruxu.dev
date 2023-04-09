@@ -25,7 +25,7 @@ LLMs are neural networks that have been trained on vast amounts of text data. Th
 
 ### Which LLMs are available?
 
-There are several LLMs available, with GPT-4  being the most popular. Other models include LLaMA, PaLM, BERT, and T5. Each model has its strengths and weaknesses and some of them are open and others are closed and only usable via API.
+There are several LLMs available, with GPT-4  being the most popular. Other models include LLaMA, PaLM, BERT, and T5. Each model has its strengths and weaknesses, some of them are open and others are closed and only usable via API.
 
 ### Shortcomings of LLMs
 
@@ -338,4 +338,4 @@ The prime numbers in the list are 5 and 7. Their sum is 12. 12 % 3 = 0. The answ
 
 ## Final note
 
-LLMs have revolutionized the field of natural language processing, but to maximize their potential, prompt engineering is essential. By understanding the tasks LLMs can perform, their shortcomings, and various prompt engineering strategies, developers can harness the power of LLMs to create innovative and effective solutions. More strategies and techniques will likely be developed in the close future so be tuned in to further advancements in this field to maximize LLM potential even more. Moreover, as LLMs continue to grow bigger with billions of additional parameters, it is probable that more tasks that we cannot even think of right now will be very possible. It's amazing to think of what will be possible using this new tools and which use cases will they serve us in the future.
+LLMs have revolutionized the field of natural language processing, but to maximize their potential, prompt engineering is essential. By understanding the tasks LLMs can perform, their shortcomings, and various prompt engineering strategies, developers can harness the power of LLMs to create innovative and effective solutions. More strategies and techniques will likely be developed in the close future so be tuned in to further advancements in this field to maximize LLM potential even more. Moreover, as LLMs continue to grow bigger with billions of additional parameters, it is probable that more tasks that we cannot even think of right now will be very possible. It's amazing to think of what will be possible using these new tools and which use cases will they serve us in the future.
