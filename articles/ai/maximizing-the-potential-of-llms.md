@@ -11,7 +11,9 @@ tags:
   - ai
 ---
 
-## Introduction
+<figure>
+<img style="aspect-ratio: 897/467" alt="OpenAI" src="{{ image }}" />
+</figure>
 
 Language models have rapidly improved in recent years, with large language models (LLMs) such as GPT-3 and GPT-4 taking center stage. These models have become popular due to their ability to perform a great variety of tasks with incredible skill. Also, as the number of parameters of these models (in the billions!) has increased, these models have unpredictably gained new abilities. 
 
