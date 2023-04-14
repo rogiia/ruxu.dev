@@ -66,7 +66,8 @@ share-button button:hover {
   <span class="read-time">{{ (content | readTime) }} minute read</span>
   <a href="/articles/{{category}}"><span class="tag">{{collections.category | getCategoryTitle(category) }}</span></a>
   <h3>{{ subtitle }}</h3>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3558841073771468"
+  {{ content | safe }}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3558841073771468"
      crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:block; text-align:center;"
@@ -77,6 +78,4 @@ share-button button:hover {
   <script>
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-  {{ content | safe }}
-
 </article>
