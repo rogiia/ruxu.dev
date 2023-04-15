@@ -66,6 +66,18 @@ bun install v0.1.5
 
 ```
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3558841073771468"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-3558841073771468"
+     data-ad-slot="5616977890"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### But how is Bun so fast?
 
 The speed of Bun can be explained by two main factors: The choice of Javascript engine and low-level optimization of native implementations.
