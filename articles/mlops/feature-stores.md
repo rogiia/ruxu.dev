@@ -35,6 +35,18 @@ The principal reason to be for a feature store is to empower data scientists to 
 
 Another benefit of centralizing features in a single feature store is **feature consistency**. Different data science teams might calculate similar features slightly differently. Those features might be the same concept and data scientists will have to agree to unify them. Then, if the process to calculate the feature changes, it changes for all the projects that use it. Or they might be a different concept, and data scientists will have to categorize them according to their separate quirks.
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3558841073771468"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-3558841073771468"
+     data-ad-slot="5616977890"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### Point-in-time correctness
 
 Feature stores also enable point-in-time correctness. The online store will always have the latest value for a feature. The offline store will store all historical values the feature had at any point. This enables data scientists to work with old values, aggregate time ranges, and so on. It also ensures the **reproducibility** of a model. At any point, we can recover the data used in a past training or in a past inference to debug the model.
