@@ -16,6 +16,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("manifest.json");
   eleventyConfig.addPassthroughCopy("service-worker.js");
   eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("ads.txt");
+
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
