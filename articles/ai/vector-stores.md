@@ -21,7 +21,7 @@ LLMs do Natural Language Processing (NLP) to represent the meaning of text as a 
 
 Currently, one of the biggest problems with LLM prompting is the *token limit*. When GPT-3 was released, the limit for both the prompt and the output combined was 2,048 tokens. With GPT-3.5 this limit increased to 4,096 tokens. Now, GPT-4 comes in two variants. One with a limit of 8,192 tokens and another with a limit of 32,768 tokens, around 50 pages of text.
 
-So, what can you do when you might want to do a prompt with a context larger than this limit? Of course, the only solution is to make the context shorter. But how can you make it shorter and at the same time have all the relevant information? The solution: *store the context in a vector database and find the relevant context with a similarity search query.*
+So, what can you do when you might want to do a prompt with a context larger than this limit? Of course, the only solution is to make the context shorter. But how can you make it shorter and at the same time have all the relevant information? The solution: **store the context in a vector database and find the relevant context with a similarity search query.**
 
 ## What are vector embeddings?
 
@@ -98,4 +98,4 @@ median = np.median(arr, axis=0)
 This will compute the median of the array elements along the first axis, and return the result in the variable "median".
 ```
 
-This is just one clever solution for a very new problem. As LLMs keep evolving, maybe problems like this will be solved without the need of these kinds of clever solutions. However, I'm sure that this evolution will open the door for new capabilities that might need other new clever solutions for the challanges that they may bring.
+This is just one clever solution for a very new problem. As LLMs keep evolving, maybe problems like this will be solved without the need of these kinds of clever solutions. However, I'm sure that this evolution will open the door for new capabilities that might need other new clever solutions for the challenges that they may bring.
