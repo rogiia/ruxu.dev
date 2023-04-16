@@ -25,7 +25,7 @@ So, what can you do when you might want to do a prompt with a context larger tha
 
 ## What are vector embeddings?
 
-Let's start by explaining what vector embeddings are. Roy Keynes' definition is: "Embeddings are learned transformations to make data more useful". A neural network learns to transform text to a vector space that contains their actual meaning. This is more useful because it can find synonyms and the syntactical and semantical relationships between words. This visual helps understand how those vectors can encode meaning:
+Let's start by explaining what vector embeddings are. [Roy Keynes' definition](https://roycoding.com/blog/2022/embeddings.html) is: "Embeddings are learned transformations to make data more useful". A neural network learns to transform text to a vector space that contains their actual meaning. This is more useful because it can find synonyms and the syntactical and semantical relationships between words. This visual helps understand how those vectors can encode meaning:
 
 <figure>
 <img alt="Word2Vec representation of Queen = King - Man + Woman" src="assets/images/word2vec-king.png" />
