@@ -29,7 +29,9 @@ Agents are an LLM that is being prompted to **reason about the actions needed to
 
 Obviously, the Agent by itself is not enough. We also need to create/use tools for the Agent to be able to use. The **Agent Executor** is the runtime that executes both the Agent and the tools that it uses. **Tools** can just be standalone functions or they can come in collections of tools called **toolkits**. 
 
-![LangChainAgents.svg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97684196-8d06-4f62-a654-8d309010f6a0/LangChainAgents.svg)
+<figure>
+<img alt="Agent Executor, Agents and Tools diagram" src="assets/images/LangChainAgents.svg" />
+</figure>
 
 ## Tools and toolkits
 
@@ -102,3 +104,4 @@ agent.run("What is 81 degrees Fahrenheit in Celsius?")
 You can learn more about Langchain and its tools by visiting [its documentation](https://python.langchain.com/docs/get_started).
 
 It looks like Agents are going to bring a lot more capabilities to LLMs in the recent future. As these new capabilities roll out to applications and tools, more outstanding things will be possible. I’m very curious and looking forward to the new possibilities.
+
