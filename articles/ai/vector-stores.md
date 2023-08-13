@@ -79,7 +79,7 @@ from langchain.llms import OpenAI
 query = "How to calculate the median of an array"
 
 db = FAISS.load_local("numpy_faiss_index", embeddings)
-docs = docsearch.similarity_search(query)
+docs = db.similarity_search(query)
 
 chain = load_qa_with_sources_chain(OpenAI(temperature=0), chain_type="stuff")
 chain({"input_documents": docs, "question": query}, return_only_outputs=True)
