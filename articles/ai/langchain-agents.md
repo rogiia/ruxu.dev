@@ -4,7 +4,7 @@ title: "How to supercharge your LLM with Langchain Agents"
 date: Last Modified
 subtitle: ""
 category: ai
-image: "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/fl8100868198-image-ktwp4zoq.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=58bb5f4f2890209ec11faa98c11b90e5"
+image: "assets/images/parrot.jpg"
 publishedDate: 2023-08-06
 tags:
   - article
