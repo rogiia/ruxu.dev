@@ -1,13 +1,18 @@
----
-layout: base.njk
-title: Blog | Roger Oriol
-image: assets/icons/chrome/chrome-installprocess-128-128.png
-subtitle: Discussing topics on web development, data architecture, software architecture and much more.
-pagination:
-  data: collections.article
-  size: 4
-  alias: articles
-  reverse: true
+---js
+{
+  layout: "base.njk",
+  title: "Blog | Roger Oriol",
+  image: "assets/icons/chrome/chrome-installprocess-128-128.png",
+  subtitle: "Discussing topics on web development, data architecture, software architecture and much more.",
+  pagination: {
+    data: "collections.article",
+    size: 4,
+    alias: "articles",
+    before: function(data) {
+      return data.sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime());
+    }
+  }
+}
 ---
 
 <p id="introduction">My name is Roger Oriol, I am a Software Architect based in Barcelona, Spain. I am a MSc graduate in Big Data Management, Technologies and Analytics. This blog will be the vehicle to divulgate and discuss topics on web development, data architecture, software architecture and much more.</p>
