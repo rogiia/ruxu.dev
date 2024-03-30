@@ -5,7 +5,7 @@ date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/collaboration.jpg"
-publishedDate: 2023-03-30
+publishedDate: 2024-03-30
 tags:
   - article
   - ai
