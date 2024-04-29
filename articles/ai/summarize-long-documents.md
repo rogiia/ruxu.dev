@@ -32,7 +32,9 @@ This might get tricky if the text to summarize is too long. There exist LLMs wit
 -	GPT-4 has a variant with a context window of 32k tokens.
 -	Claude 3 Opus has a context window of 200k tokens.
 -	Gemini 1.5 Pro can have a context window of up to 1 million tokens.
+
 However, sometimes using a LLM with such a large context window is off the table. There are many factors that can make this the case:
+
 -	Those models might be too expensive.
 -	Models sometimes have a hard time using all the information in very long prompts.
 -	All the models with large context windows might be off the table because of restrictions like only being able to use open-source models. 
