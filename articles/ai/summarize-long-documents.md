@@ -15,7 +15,7 @@ tags:
 <img style="aspect-ratio: 897/467" alt="Collaboration" src="{{ image }}" />
 </figure>
 
-One of the tasks Generative AI models are good at is summarizing texts. However, if you want to summarize a text, you need the whole text to fit in the context window, plus the command to summarize it. The following is an example prompt (you can test it yourself using the [Google Colab notebook for this article](https://colab.research.google.com/drive/1z5wwBLOag7TK5ylimSuosEQQdjkBswYu?usp=sharing)):
+One of the tasks Generative AI models are good at is summarizing texts. However, if you want to summarize a text, you need the whole text to fit in the context window, plus the command to summarize it. The following is an example prompt (you can test it yourself using the <a href="https://colab.research.google.com/drive/1z5wwBLOag7TK5ylimSuosEQQdjkBswYu?usp=sharing" target="_blank">Google Colab notebook for this article</a>):
 
 ```
 Write a concise summary of the following text:
@@ -40,7 +40,7 @@ However, sometimes using a LLM with such a large context window is off the table
 -	All the models with large context windows might be off the table because of restrictions like only being able to use open-source models. 
 -	Your text might be longer that all available models (yes even with 1M context windows).
 
-Luckily, there exists a technique that can get an LLM to summarize a document longer than its context window size. The technique is called MapReduce. It’s based on dividing the text in a collection of smaller texts that do fit in the context window and then summarizing each part separately. The steps to perform a MapReduce summary are the following (Again, you can execute and see for yourself all the process in the [Google Colab notebook](https://colab.research.google.com/drive/1z5wwBLOag7TK5ylimSuosEQQdjkBswYu?usp=sharing)):
+Luckily, there exists a technique that can get an LLM to summarize a document longer than its context window size. The technique is called MapReduce. It’s based on dividing the text in a collection of smaller texts that do fit in the context window and then summarizing each part separately. The steps to perform a MapReduce summary are the following (Again, you can execute and see for yourself all the process in the <a href="https://colab.research.google.com/drive/1z5wwBLOag7TK5ylimSuosEQQdjkBswYu?usp=sharing" target="_blank">Google Colab notebook for this article</a>):
 - First, the long document is divided into chunks using a text splitter. The strategy we use to divide the text can be different depending on the type of document. 
     - If the text has sections and all sections are smaller than the context window, we could divide it by those sections.
     - If the text has no clear sections or the sections are too large, the text can be divided in equal sized chunks character-wise. This last approach has the problem of separating related sentences in different chunks. To avoid this problem, we can have an overlap between chunks. With this solution, the last N characters of a chunk will be repeated as the first N characters of the next chunk, so context is not lost.
