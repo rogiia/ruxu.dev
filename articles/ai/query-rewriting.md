@@ -46,7 +46,7 @@ Query Rewriting usually gives better performance in any RAG app that is knowledg
 
 ### How to implement Query Rewriting
 
-We have stablished that there are different strategies of Query Rewriting depending on the complexity of the questions. We will briefly visit how to implement each of them. After, we will see a real example to compare the result of a basic RAG app versus a RAG app with Query Rewriting. You can also follow all the examples in [the article’s Google Colab notebook](https://colab.research.google.com/drive/1-NT0_mmyoSnaDQJ1Zuo0XX613TG5lzjZ?usp=sharing).
+We have stablished that there are different strategies of Query Rewriting depending on the complexity of the questions. We will briefly visit how to implement each of them. After, we will see a real example to compare the result of a basic RAG app versus a RAG app with Query Rewriting. You can also follow all the examples in <a href="https://colab.research.google.com/drive/1-NT0_mmyoSnaDQJ1Zuo0XX613TG5lzjZ?usp=sharing" target="_blank">the article’s Google Colab notebook</a>.
 
 #### Zero-shot Query Rewriting
 
