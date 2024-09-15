@@ -73,7 +73,7 @@ Depending on the use case, it will make sense for the router to just choose one 
 We have to design the router taking these possibilities into account.
 
 ### Example implementation of a Query Router
-Let’s get into the implementation of a Query Router within a RAG application. You can follow the implementation step by step and run it yourself in the Google Colab notebook (https://colab.research.google.com/drive/1B1rGvGriKIVe7PMClrMC0z3wMBbsLIYW?usp=sharing).
+Let’s get into the implementation of a Query Router within a RAG application. You can follow the implementation step by step and run it yourself in the [Google Colab notebook](https://colab.research.google.com/drive/1B1rGvGriKIVe7PMClrMC0z3wMBbsLIYW?usp=sharing).
 
 For this example, we will showcase a RAG application with a query router. The application can decide to answer questions based on two documents. The first document is a paper about RAG and the second a recipe for chicken gyros. Also, the application can decide to answer based on a Google search. We will implement a single-source Query Router using an LLM function calling router.
 
