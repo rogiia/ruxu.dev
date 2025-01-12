@@ -13,6 +13,7 @@ tags:
 
 <figure>
 <img style="aspect-ratio: 897/467" alt="Le Penseur statue" src="{{ image }}" />
+<figcaption>Le Penseur (1904) in the Musée Rodin in Paris. Picture by CrisNYCa - Wikipedia.</figcaption>
 </figure>
 
 ## Introduction
