@@ -18,7 +18,7 @@ tags:
 
 The Dead Internet Theory is a thought that has gained a lot of traction recently. I have to admit, the first time it was explained to me, I felt an eerie realization. Like I had already been experiencing it, but I hadn't paid too much attention to it. The first moment, I felt scared for the future and nostalgic for the past. But that's an old man's attitude, to be so resistant of change. After that moment, I started reflecting. How did we get here? And how can we prevent the Internet from continuing down this concerning path?
 
-## What Is The "Dead Internet Theory"?
+### What Is The "Dead Internet Theory"?
 The main premise of the Dead Internet Theory is an outrageous statement that challenges our view of the state of the Internet:
 
 > The Internet feels empty and devoid of people.
@@ -33,7 +33,7 @@ Second, an increasing amount of users of the Internet are not people. They are b
 
 The Internet was supposed to connect people all around the world. And it did that, beautifully. But for the last years, it's been going in the opposite direction. It's driving us apart, isolating us from other people and keeping us content with experiencing an Internet massivelly filled with content, without the need to interact with other people.
 
-## Is It Really That Bad?
+### Is It Really That Bad?
 
 To be fair, it's not like nobody uses the Internet to communicate with anyone anymore. Messaging apps are very prevalent and the users of these apps are mostly human. We talk with our friends, make plans, catch up with people that are not as much in our lives as they used to. But this is a **private** Internet, not an open Internet. A private chat is not meant to be shared, discovered by people interested on what you are talking about or build a little garden in a corner of the Internet that's just yours.
 
@@ -57,7 +57,7 @@ Basically, if you post something on Instagram and nobody likes it or comments it
 
 If we continue down this path, soon 99% of all content on the Internet will be AI generated and the Internet will have converted from a place to share and communicate with other people to a place to consume endless slop. It will be lonelier than ever, an Internet without people.
 
-## My Final Thoughts + Possible solutions
+### My Final Thoughts + Possible solutions
 
 In my opinion, the epicenter of the problem is not AI as a whole but recommendation algorithms and infinite scrolling. The problem is a business model built on the need to drive up engagement and keeping users on the platform at any cost. And it's a titanic problem to tackle, since the whole modern Internet is built around this concept.
 
