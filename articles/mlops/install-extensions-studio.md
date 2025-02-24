@@ -51,18 +51,6 @@ restart-jupyter-lab
 
 and refresh the page.
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3558841073771468"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-3558841073771468"
-     data-ad-slot="5616977890"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 Installing extensions has a problem in SageMaker Studio. Every time your JupyterServer shuts down, **it's going to lose all installed extensions and start from a clean state**. To keep all the installed extensions, you must create a **Lifecycle Configuration**. This Lifecycle Configuration will install all the extensions on startup. The Lifecycle Configuration will execute a script when the JupyterServer starts. The content of the script will be:
 
 ```bash
