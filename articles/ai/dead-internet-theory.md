@@ -12,7 +12,7 @@ tags:
 ---
 
 <figure>
-<img style="aspect-ratio: 897/467" alt="Peter Steiner's 1993 cartoon, as published in The New Yorker" src="assets/images/dead-internet-theory/Internet-dog.jpg" />
+<img style="aspect-ratio: 897/467" alt="Peter Steiner's 1993 cartoon, as published in The New Yorker" src="assets/images/dead-internet-theory/Internet_dog.jpg" />
 <figcaption>On the Internet nobody knows you are a dog... or an LLM</figcaption>
 </figure>
 
