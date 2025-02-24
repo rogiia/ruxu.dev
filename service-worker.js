@@ -61,12 +61,16 @@ const fromCache = request =>
     );
 
 // cache the current page to make it available for offline
-const update = request =>
-  caches
+const update = request => {
+  if(!request.url.startsWith('http')) {
+    return;
+  }
+  return caches
     .open(CURRENT_CACHE)
     .then(cache =>
       fetch(request.url).then(response => cache.put(request, response))
     );
+}
 
 // general strategy when making a request (eg if online try to fetch it
 // from the network with a timeout, if something fails serve from cache)
