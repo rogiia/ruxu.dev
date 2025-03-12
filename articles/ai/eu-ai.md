@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/eu-ai/eu-flag.jpg"
 publishedDate: 2024-11-29
 tags:
+  - post
   - article
   - ai
 ---

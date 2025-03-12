@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/openai.png"
 publishedDate: 2023-04-16
 tags:
+  - post
   - article
   - ai
 ---

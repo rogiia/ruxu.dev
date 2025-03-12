@@ -7,6 +7,7 @@ category: mlops
 image: assets/images/paint_sm.jpg
 publishedDate: 2022-08-05
 tags:
+  - post
   - article
   - mlops
 ---

@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/basic-rag/library.jpg"
 publishedDate: 2024-05-29
 tags:
+  - post
   - article
   - ai
 ---

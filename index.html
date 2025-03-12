@@ -5,9 +5,9 @@
   image: "assets/icons/chrome/chrome-installprocess-128-128.png",
   subtitle: "Discussing topics on web development, data architecture, software architecture and much more.",
   pagination: {
-    data: "collections.article",
+    data: "collections.post",
     size: 4,
-    alias: "articles",
+    alias: "posts",
     before: function(data) {
       return data.sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime());
     }
@@ -19,43 +19,38 @@
 
 <h2>Recent posts</h2>
 <ul class="blog-entry-list">
-  {%- for article in articles | sort(true, true, "data.publishedDate") -%}
-  <li class="blog-entry-summary card">
-    {% if article.data.image %}
-    <img width="200" src="{{article.data.image}}" alt="{{article.data.title}}" title="{{article.data.title}}" onclick="window.location='{{article.url}}'" tabindex="0" />
-    {% endif %}
-    <div tabindex="0" role="link" onclick="window.location='{{article.url}}'" aria-label="{{article.data.title}}">
-      <time datetime="{{ article.data.publishedDate | htmlDateString }}">{{article.data.publishedDate | readableDate}}</time>
-      <h2>{{article.data.title}}</h2>
-      <p>{{article.data.subtitle}}</p>
-      <a href="{{article.url}}">Read more...</a>
-    </div>
+  {%- for post in posts | sort(true, true, "data.publishedDate") -%}
+  <li class="blog-entry-summary">
     <div>
-      <span class="read-time">{{article.templateContent | readTime}} minute read</span>
+      <time datetime="{{ post.data.publishedDate | htmlDateString }}">{{post.data.publishedDate | readableDate}}</time>
+      {% if post.data.tags | hasLinkTag %}
+      <div class="blog-entry-summary-content">
+        <div class="blog-entry-summary-title" tabindex="0" role="link" onclick="window.open('{{post.data.externalUrl}}', '_blank').focus();" aria-label="{{post.data.title}}">
+          <h2>🔗 {{ post.data.title }}</h2>
+        </div>
+      </div>
+      {{ post.content | safe }}
+      <a href="{{post.data.externalUrl}}" target="_blank">[[ Visit external link ]]</a>
+      {% else %}
+      <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
+        {% if post.data.image %}
+        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" tabindex="0" />
+        {% endif %}
+        <div class="blog-entry-summary-title">
+          <h2>{{post.data.title}}</h2>
+          {% if post.data.subtitle %}
+            <p>{{post.data.subtitle}}</p>
+          {% else %}
+            <p>{{post.content | truncText}}...</p>
+          {% endif %}
+        </div>
+      </div>
+      <a href="{{post.url}}">[[ Read more ]]</a>
+      <span class="inline-separator">·</span>
+      <span class="read-time">{{post.templateContent | readTime}} minute read</span>
+      {% endif %}
     </div>
   </li>
   {%- endfor -%}
 </ul>
 <a href="/articles/recent" class="more">More posts	&#x27A1;</a>
-{%- for category in collections.category -%}
-<h2>{{category.data.title}}</h2>
-<ul class="blog-entry-list">
-  {%- for article in collections[category.data.slug] | sort(true, true, "data.publishedDate") -%}
-  <li class="blog-entry-summary card">
-    {% if article.data.image %}
-    <img width="200" src="{{article.data.image}}" alt="{{article.data.title}}" onclick="window.location='{{article.url}}'" title="{{article.data.title}}" tabindex="0" />
-    {% endif %}
-    <div tabindex="0" role="link" onclick="window.location='{{article.url}}'" aria-label="{{article.data.title}}">
-      <time datetime="{{ article.data.publishedDate | htmlDateString }}">{{article.data.publishedDate | readableDate}}</time>
-      <h2>{{article.data.title}}</h2>
-      <p>{{article.data.subtitle}}</p>
-      <a href="{{article.url}}">Read more...</a>
-    </div>
-    <div>
-      <span class="read-time">{{article.templateContent | readTime}} minute read</span>
-    </div>
-  </li>
-  {%- endfor -%}
-</ul>
-<a href="{{category.url}}" class="more">More on {{category.data.title}}	&#x27A1;</a>
-{%- endfor -%}

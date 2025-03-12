@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/query-routing/query-routing-cover.png"
 publishedDate: 2024-09-12
 tags:
+  - post
   - article
   - ai
 ---

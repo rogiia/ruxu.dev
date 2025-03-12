@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/ai.jpg"
 publishedDate: 2024-01-29
 tags:
+  - post
   - article
   - ai
 ---

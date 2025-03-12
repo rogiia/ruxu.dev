@@ -7,6 +7,7 @@ category: languages-and-frameworks
 image: assets/images/bun.png
 publishedDate: 2022-07-26
 tags:
+  - post
   - article
   - languages-and-frameworks
 ---

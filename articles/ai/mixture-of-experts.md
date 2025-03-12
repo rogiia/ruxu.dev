@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/collaboration.jpg"
 publishedDate: 2024-03-30
 tags:
+  - post
   - article
   - ai
 ---

@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/dead-internet-theory/desert.jpg"
 publishedDate: 2025-02-23
 tags:
+  - post
   - article
   - ai
 ---

@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/2024-ai-review/firecracker.jpg"
 publishedDate: 2024-12-23
 tags:
+  - post
   - article
   - ai
 ---

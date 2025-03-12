@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/test-time-compute/thethinker-sm.jpg"
 publishedDate: 2025-01-11
 tags:
+  - post
   - article
   - ai
 ---
@@ -15,8 +16,6 @@ tags:
 <img style="aspect-ratio: 897/467" alt="Le Penseur statue" src="{{ image }}" />
 <figcaption>Le Penseur (1904) in the Musée Rodin in Paris. Picture by CrisNYCa - Wikipedia.</figcaption>
 </figure>
-
-## Introduction
 
 A new kind of LLM has recently been popping out everywhere: Reasoner models. Kickstarted by OpenAI's o1 and o3, these models are a bit different from the rest. These models particularly shine when dealing with mathematical problems and coding challenges, where success depends on following precise, logical steps to reach a correct solution. On the other hand, these models take much longer to answer than any conventional model.
 

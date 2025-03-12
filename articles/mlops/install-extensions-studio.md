@@ -7,6 +7,7 @@ category: mlops
 image: assets/images/puzzle_sm.webp
 publishedDate: 2022-08-07
 tags:
+  - post
   - article
   - mlops
 ---

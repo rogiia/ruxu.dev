@@ -7,6 +7,7 @@ category: mlops
 image: assets/images/security.webp
 publishedDate: 2022-08-06
 tags:
+  - post
   - article
   - mlops
 ---

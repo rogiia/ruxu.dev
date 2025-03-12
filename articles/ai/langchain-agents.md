@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/parrot.jpg"
 publishedDate: 2023-08-06
 tags:
+  - post
   - article
   - ai
 ---

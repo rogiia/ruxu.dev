@@ -8,6 +8,8 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 
+const striptags = require("striptags");
+
 module.exports = function(eleventyConfig) {
   // Copy the `assets` and `styles` folders to the output
   eleventyConfig.addPassthroughCopy("assets");
@@ -47,6 +49,15 @@ module.exports = function(eleventyConfig) {
     const numWords = words.length;
     const readTime = Math.round(numWords / 120);
     return readTime;
+  });
+
+  eleventyConfig.addFilter('truncText', (text) => {
+    text = text.replace(/<figure>.*<\/figure>/gms, '');
+    return striptags(text).substr(0, 140);
+  });
+
+  eleventyConfig.addFilter('hasLinkTag', (tags) => {
+    return tags.indexOf('link') !== -1;
   });
 
   // Get the first `n` elements of a collection.

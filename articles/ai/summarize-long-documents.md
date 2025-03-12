@@ -7,6 +7,7 @@ category: ai
 image: "assets/images/summarize-long-doc/written_text.jpg"
 publishedDate: 2024-04-29
 tags:
+  - post
   - article
   - ai
 ---
