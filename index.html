@@ -6,7 +6,7 @@
   subtitle: "Discussing topics on web development, data architecture, software architecture and much more.",
   pagination: {
     data: "collections.post",
-    size: 4,
+    size: 10,
     alias: "posts",
     before: function(data) {
       return data.sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime());

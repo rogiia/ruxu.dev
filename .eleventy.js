@@ -53,7 +53,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter('truncText', (text) => {
     text = text.replace(/<figure>.*<\/figure>/gms, '');
-    return striptags(text).substr(0, 140);
+    return striptags(text).substr(0, 280);
   });
 
   eleventyConfig.addFilter('hasLinkTag', (tags) => {
