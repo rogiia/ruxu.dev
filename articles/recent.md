@@ -1,9 +1,9 @@
 ---
 layout: category.njk
-title: Recent Articles
+title: Recent Posts
 slug: recent
 pagination:
-  data: collections.article
+  data: collections.post
   size: 10
-  alias: articles
+  alias: posts
 ---
