@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "Maximizing the Potential of LLMs: A Guide to Prompt Engineering"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/openai.png"
-publishedDate: 2023-04-09
+date: 2023-04-09
 tags:
   - post
   - article

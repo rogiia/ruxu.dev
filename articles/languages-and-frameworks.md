@@ -7,5 +7,6 @@ tags:
 pagination:
   data: collections.languages-and-frameworks
   size: 10
-  alias: articles
+  alias: posts
+  reverse: true
 ---

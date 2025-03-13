@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "Understanding LLMs: Mixture of Experts"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/collaboration.jpg"
-publishedDate: 2024-03-30
+date: 2024-03-30
 tags:
   - post
   - article

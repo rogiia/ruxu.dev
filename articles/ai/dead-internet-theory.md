@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "About the Dead Internet Theory and AI"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/dead-internet-theory/desert.jpg"
-publishedDate: 2025-02-23
+date: 2025-02-23
 tags:
   - post
   - article

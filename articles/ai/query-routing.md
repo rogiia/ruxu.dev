@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "Build an Advanced RAG App: Query Routing"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/query-routing/query-routing-cover.png"
-publishedDate: 2024-09-12
+date: 2024-09-12
 tags:
   - post
   - article

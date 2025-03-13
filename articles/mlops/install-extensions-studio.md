@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: How to install (and keep) extensions in SageMaker Studio
-date: Last Modified
 subtitle: Enhance the experience of your data scientists with SageMaker Studio extensions
 category: mlops
 image: assets/images/puzzle_sm.webp
-publishedDate: 2022-08-07
+date: 2022-08-07
 tags:
   - post
   - article

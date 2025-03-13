@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "How to supercharge your LLM with Langchain Agents"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/parrot.jpg"
-publishedDate: 2023-08-06
+date: 2023-08-06
 tags:
   - post
   - article

@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "Build an Advanced RAG App: Query Rewriting"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/query-rewriting/query-rewriting-cover.jpg"
-publishedDate: 2024-06-30
+date: 2024-06-30
 tags:
   - post
   - article

@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "How to use LLMs: Summarize long documents"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/summarize-long-doc/written_text.jpg"
-publishedDate: 2024-04-29
+date: 2024-04-29
 tags:
   - post
   - article

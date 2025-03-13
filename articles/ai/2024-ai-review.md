@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "AI in 2024: Year in Review and Predictions for 2025"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/2024-ai-review/firecracker.jpg"
-publishedDate: 2024-12-23
+date: 2024-12-23
 tags:
   - post
   - article

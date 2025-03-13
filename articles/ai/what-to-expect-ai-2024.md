@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "What to Expect for AI in 2024?"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/ai.jpg"
-publishedDate: 2024-01-29
+date: 2024-01-29
 tags:
   - post
   - article

@@ -8,9 +8,7 @@
     data: "collections.post",
     size: 10,
     alias: "posts",
-    before: function(data) {
-      return data.sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime());
-    }
+    reverse: true
   }
 }
 ---
@@ -19,10 +17,10 @@
 
 <h2>Recent posts</h2>
 <ul class="blog-entry-list">
-  {%- for post in posts | sort(true, true, "data.publishedDate") -%}
+  {%- for post in posts -%}
   <li class="blog-entry-summary">
     <div>
-      <time datetime="{{ post.data.publishedDate | htmlDateString }}">{{post.data.publishedDate | readableDate}}</time>
+      <time datetime="{{ post.data.date | htmlDateString }}">{{post.data.date | readableDate}}</time>
       {% if post.data.tags | hasLinkTag %}
       <div class="blog-entry-summary-content">
         <div class="blog-entry-summary-title" tabindex="0" role="link" onclick="window.open('{{post.data.externalUrl}}', '_blank').focus();" aria-label="{{post.data.title}}">

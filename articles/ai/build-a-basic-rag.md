@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "How to build a basic RAG app"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/basic-rag/library.jpg"
-publishedDate: 2024-05-29
+date: 2024-05-29
 tags:
   - post
   - article

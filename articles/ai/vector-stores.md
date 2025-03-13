@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: "Maximizing the Potential of LLMs: Using Vector Databases"
-date: Last Modified
 subtitle: ""
 category: ai
 image: "assets/images/openai.png"
-publishedDate: 2023-04-16
+date: 2023-04-16
 tags:
   - post
   - article

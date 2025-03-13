@@ -1,11 +1,10 @@
 ---
 layout: article.njk
 title: Feature Store - Why do you need one?
-date: Last Modified
 subtitle: "How to set up a data architecture that saves your data scientists time and effort."
 category: mlops
 image: assets/images/paint_sm.jpg
-publishedDate: 2022-08-05
+date: 2022-08-05
 tags:
   - post
   - article

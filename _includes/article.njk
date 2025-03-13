@@ -11,7 +11,7 @@ title: Roger Oriol
   "speakable": "article",
   "abstract": "{{subtitle}}",
   "headline": "{{title}}",
-  "datePublished": "{{ publishedDate | htmlDateString }}",
+  "datePublished": "{{ date | htmlDateString }}",
   "dateModified": "{{ page.date | htmlDateString }}",
   "image": "https://ruxu.dev{{image}}",
   "url": "https://ruxu.dev{{page.url}}"
@@ -62,7 +62,7 @@ share-button button:hover {
     </button>
   </share-button>
   <br />
-  <time datetime="{{ publishedDate | htmlDateString }}">{{publishedDate | readableDate}}</time>
+  <time datetime="{{ date | htmlDateString }}">{{date | readableDate}}</time>
   <span class="read-time">{{ (content | readTime) }} minute read</span><br />
   <a href="/articles/{{category}}"><span class="tag">{{collections.category | getCategoryTitle(category) }}</span></a>
   <h3>{{ subtitle }}</h3>
