@@ -5,7 +5,7 @@ slug: web
 tags:
   - category
 pagination:
-  data: collections.ai
+  data: collections.web
   size: 10
   alias: posts
   reverse: true
