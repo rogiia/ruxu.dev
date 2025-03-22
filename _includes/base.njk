@@ -22,18 +22,11 @@
     <meta property="og:tag" content="{{ tags.join(',') }}" />
     {% endif %}
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="{{title}}">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
     <link rel="canonical" href="https://ruxu.dev{{page.url}}" />
 
-    <link rel="apple-touch-icon" href="assets/icons/apple/apple-launchericon-192-192.png">
-
-    <!-- Imports an icon to represent the document. -->
-    <!-- <link rel="icon" href="assets/icons/icon_24.png" type="image/x-icon"> -->
-
     <link rel="manifest" href="manifest.json">
+    <link rel="alternate" type="application/rss+xml" href="feed.xml">
+    <meta name="color-scheme" content="light dark">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -41,7 +34,6 @@
 
     <link defer href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
 
-    <!--<script type="module" src="dist/main.umd.js"></script>-->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -161,72 +153,6 @@
       }
       span.inline-separator {
         margin: 0 0.5em;
-      }
-      ul.pagination li {
-        list-style-type: none;
-        margin-left: 0.5rem;
-        display: inline-block;
-      }
-      ul.pagination li:first-child {
-        margin-left: 0;
-      }
-      ul.pagination li a.current {
-        font-weight: bold;
-      }
-      .category-tag {
-        display: inline-block;
-        background-color: #246ea0;
-        padding: 2px 8px;
-        border-radius: 1em;
-        color: white;
-        cursor: pointer;
-        margin-bottom: 2px;
-        font-weight: bold;
-        line-height: 1.5;
-        font-size: 0.8em;
-      }
-      article h2 {
-        font-size: 2em;
-        margin-block-start: 0;
-        margin-block-end: 0;
-      }
-      article h3 {
-        font-size: 1.5em;
-      }
-      article h4 {
-        font-size: 1.3em;
-        font-weight: 500;
-      }
-      article p {
-        color: #222;
-      }
-      article img {
-        width: 100%;
-      }
-      article > ul {
-        text-align: justify;
-        font-size: 1em;
-      }
-      pre {
-        overflow: scroll;
-      }
-      blockquote {
-        background: #f9f9f9;
-        border-left: 10px solid #ccc;
-        margin: 1.5em 10px;
-        padding: 0.5em 10px;
-        quotes: "\201C""\201D""\2018""\2019";
-      }
-      blockquote:before {
-        color: #ccc;
-        content: open-quote;
-        font-size: 4em;
-        line-height: 0.1em;
-        margin-right: 0.25em;
-        vertical-align: -0.4em;
-      }
-      blockquote p {
-        display: inline;
       }
     </style>
     <link rel="preload" href="styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

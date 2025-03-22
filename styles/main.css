@@ -1,0 +1,115 @@
+ul.pagination li {
+  list-style-type: none;
+  margin-left: 0.5rem;
+  display: inline-block;
+}
+ul.pagination li:first-child {
+  margin-left: 0;
+}
+ul.pagination li a.current {
+  font-weight: bold;
+}
+.category-tag {
+  display: inline-block;
+  background-color: #246ea0;
+  padding: 2px 8px;
+  border-radius: 1em;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 2px;
+  font-weight: bold;
+  line-height: 1.5;
+  font-size: 0.8em;
+}
+article h2 {
+  font-size: 2em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+article h3 {
+  font-size: 1.5em;
+}
+article h4 {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+article p {
+  color: #222;
+}
+article img {
+  width: 100%;
+}
+article > ul {
+  text-align: justify;
+  font-size: 1em;
+}
+pre {
+  overflow: scroll;
+}
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+share-button button, share-button a {
+  color: #615b5b;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+share-button button:hover {
+  color: #000;
+}
+::selection {
+  color: white;
+  background: #2980b9;
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #222;
+    color: #fff;
+  }
+  h1, h2, h3, h4 {
+    color: #ceceff;
+  }
+  p, article p {
+    color: #fff;
+  }
+  span.read-time, time {
+    color: #ddbebe;
+  }
+  a {
+    color: #99d;
+  }
+  a:hover, a:visited,
+  li.blog-entry-summary a:hover, li.blog-entry-summary a:visited {
+    color: #dd99dd;
+  }
+  share-button button, share-button a,
+  share-button a:hover, share-button a:visited,
+  .more, .more:hover, .more:visited {
+    color: #ddd;
+  }
+  blockquote {
+    background: #444;
+  }
+  header #icons img {
+    filter: invert(1);
+  }
+}
