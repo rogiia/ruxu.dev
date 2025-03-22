@@ -64,7 +64,7 @@ share-button button:hover {
   <br />
   <time datetime="{{ date | htmlDateString }}">{{date | readableDate}}</time>
   <span class="read-time">{{ (content | readTime) }} minute read</span><br />
-  <a href="/articles/{{category}}"><span class="tag">{{collections.category | getCategoryTitle(category) }}</span></a>
+  <a href="/articles/{{category}}"><span class="category-tag">{{collections.category | getCategoryTitle(category) }}</span></a>
   <h3>{{ subtitle }}</h3>
   {{ content | safe }}
 </article>
