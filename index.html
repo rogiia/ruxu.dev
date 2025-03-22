@@ -32,7 +32,7 @@
       {% else %}
       <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
         {% if post.data.image %}
-        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" tabindex="0" />
+        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" />
         {% endif %}
         <div class="blog-entry-summary-title">
           <h2>{{post.data.title}}</h2>
