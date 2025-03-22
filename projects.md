@@ -1,46 +1,22 @@
 ---
 layout: base.njk
-title: Category
+title: "🚧 My Projects"
+slug: recent
+pagination:
+  data: collections.project
+  size: 10
+  alias: posts
+  reverse: true
 ---
-{% if slug !== 'recent' %}
-<h2>Posts on <em>{{title}}</em></h2>
-{% else %}
+
 <h2>{{title}}</h2>
-{% endif %}
 <ul class="blog-entry-list">
   {%- for post in posts -%}
   <li class="blog-entry-summary">
     <div>
-      <time datetime="{{ post.data.date | htmlDateString }}">{{post.data.date | readableDate}}</time>
-      {% if post.data.tags | hasLinkTag %}
-      <div class="blog-entry-summary-content">
-        <div class="blog-entry-summary-title" tabindex="0" role="link" onclick="window.open('{{post.data.externalUrl}}', '_blank').focus();" aria-label="{{post.data.title}}">
-          <h2>🔗 {{ post.data.title }}</h2>
-        </div>
-      </div>
-      {{ post.content | safe }}
-      <a href="{{post.data.externalUrl}}" target="_blank">[[ Visit external link ]]</a>
-      {% elseif post.data.tags | hasProjectTag %}
       <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
         {% if post.data.image %}
         <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" />
-        {% endif %}
-        <div class="blog-entry-summary-title">
-          <h2>🚧 [Project] {{post.data.title}}</h2>
-          {% if post.data.subtitle %}
-            <p>{{post.data.subtitle}}</p>
-          {% else %}
-            <p>{{post.content | truncText}}...</p>
-          {% endif %}
-        </div>
-      </div>
-      {% if post.data.github_link %}<a href="{{post.data.github_link}}">[[ Github repo ]]</a>{% endif %}
-      {% if post.data.github_link and post.data.project_link %}<span class="inline-separator">·</span>{% endif %}
-      {% if post.data.project_link %}<a href="{{post.data.project_link}}">[[ Go to project ]]</a>{% endif %}
-      {% else %}
-      <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
-        {% if post.data.image %}
-        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" tabindex="0" />
         {% endif %}
         <div class="blog-entry-summary-title">
           <h2>{{post.data.title}}</h2>
@@ -51,10 +27,9 @@ title: Category
           {% endif %}
         </div>
       </div>
-      <a href="{{post.url}}">[[ Read more ]]</a>
-      <span class="inline-separator">·</span>
-      <span class="read-time">{{post.templateContent | readTime}} minute read</span>
-      {% endif %}
+      {% if post.data.github_link %}<a href="{{post.data.github_link}}">[[ Github repo ]]</a>{% endif %}
+      {% if post.data.github_link and post.data.project_link %}<span class="inline-separator">·</span>{% endif %}
+      {% if post.data.project_link %}<a href="{{post.data.project_link}}">[[ Go to project ]]</a>{% endif %}
     </div>
   </li>
   {%- endfor -%}
@@ -70,3 +45,4 @@ title: Category
   {%- endfor %}
   <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
 </ul>
+

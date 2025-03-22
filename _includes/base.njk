@@ -64,7 +64,7 @@
       }
       h2 {
         font-weight: normal;
-        margin-top: 2em;
+        margin-top: 1em;
         font-size: 1.5em;
       }
       header, main {
@@ -105,6 +105,26 @@
       }
       p {
         color: #615b5b;
+      }
+      p#introduction {
+        margin-top: 0;
+      }
+      ul#types-of-posts {
+        padding: 0;
+        list-style-type: none;
+      }
+      ul#types-of-posts li {
+        display: inline-block;
+        margin-right: 1rem;
+        font-weight: bold;
+      }
+      ul#types-of-posts li:after {
+        content: "·";
+        margin-left: 1rem;
+      }
+      ul#types-of-posts li:last-child:after {
+        content: "";
+        margin-left: 0;
       }
       ul.blog-entry-list {
         padding: 0;

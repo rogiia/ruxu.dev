@@ -60,6 +60,11 @@ module.exports = function(eleventyConfig) {
     return tags.indexOf('link') !== -1;
   });
 
+  eleventyConfig.addFilter('hasProjectTag', (tags) => {
+    return tags.indexOf('project') !== -1;
+  });
+
+
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
     if(!Array.isArray(array) || array.length === 0) {

@@ -1,9 +1,9 @@
 ---
 layout: category.njk
-title: Recent Articles
+title: "🔗 Shared Links"
 slug: recent
 pagination:
-  data: collections.article
+  data: collections.link
   size: 10
   alias: posts
   reverse: true

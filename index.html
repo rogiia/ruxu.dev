@@ -15,6 +15,12 @@
 
 <p id="introduction">My name is Roger Oriol, I am a Software Architect based in Barcelona, Spain. I am a MSc graduate in Big Data Management, Technologies and Analytics. This blog will be the vehicle to divulgate and discuss topics on web development, data architecture, software architecture and much more.</p>
 
+<ul id="types-of-posts">
+  <li><a href="articles/recent">Articles</a></li>
+  <li><a href="links/recent">Shared links</a></li>
+  <li><a href="projects">Projects</a></li>
+</ul>
+
 <h2>Recent posts</h2>
 <ul class="blog-entry-list">
   {%- for post in posts -%}
@@ -29,6 +35,23 @@
       </div>
       {{ post.content | safe }}
       <a href="{{post.data.externalUrl}}" target="_blank">[[ Visit external link ]]</a>
+      {% elseif post.data.tags | hasProjectTag %}
+      <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
+        {% if post.data.image %}
+        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" />
+        {% endif %}
+        <div class="blog-entry-summary-title">
+          <h2>🚧 [Project] {{post.data.title}}</h2>
+          {% if post.data.subtitle %}
+            <p>{{post.data.subtitle}}</p>
+          {% else %}
+            <p>{{post.content | truncText}}...</p>
+          {% endif %}
+        </div>
+      </div>
+      {% if post.data.github_link %}<a href="{{post.data.github_link}}">[[ Github repo ]]</a>{% endif %}
+      {% if post.data.github_link and post.data.project_link %}<span class="inline-separator">·</span>{% endif %}
+      {% if post.data.project_link %}<a href="{{post.data.project_link}}">[[ Go to project ]]</a>{% endif %}
       {% else %}
       <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
         {% if post.data.image %}
@@ -51,4 +74,4 @@
   </li>
   {%- endfor -%}
 </ul>
-<a href="/articles/recent" class="more">More posts	&#x27A1;</a>
+<a href="/recent" class="more">More posts	&#x27A1;</a>
