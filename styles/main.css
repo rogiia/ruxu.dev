@@ -81,10 +81,6 @@ share-button button:hover {
 
 /* dark mode */
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #222;
-    color: #fff;
-  }
   h1, h2, h3, h4 {
     color: #ceceff;
   }
