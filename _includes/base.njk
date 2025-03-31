@@ -1,205 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
 
-    <base href="/">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
 
-    <meta name="viewport"
-      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="{{subtitle}}">
-    <meta name="theme-color" content="#33d">
-    <meta property="og:title" content="{{title}}" />
-    <meta property="og:type" content="{% if tags %}article{% else %}website{% endif %}" />
-    <meta property="og:url" content="https://ruxu.dev{{page.url}}" />
-    <meta property="og:image" content="https://ruxu.dev{{image}}" />
-    {% if tags %}
-    <meta property="og:published_time" content="{{ page.date | htmlDateString }}" />
-    <meta property="og:modified_time" content="{{ page.date | htmlDateString }}" />
-    <meta property="og:author" content="Roger Oriol" />
-    <meta property="og:section" content="{{category}}" />
-    <meta property="og:tag" content="{{ tags.join(',') }}" />
-    {% endif %}
+  <base href="/">
 
-    <link rel="canonical" href="https://ruxu.dev{{page.url}}" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="{{subtitle}}">
+  <meta name="theme-color" content="#33d">
+  <meta property="og:title" content="{{title}}" />
+  <meta property="og:type" content="{% if tags %}article{% else %}website{% endif %}" />
+  <meta property="og:url" content="https://ruxu.dev{{page.url}}" />
+  <meta property="og:image" content="https://ruxu.dev{{image}}" />
+  {% if tags %}
+  <meta property="og:published_time" content="{{ page.date | htmlDateString }}" />
+  <meta property="og:modified_time" content="{{ page.date | htmlDateString }}" />
+  <meta property="og:author" content="Roger Oriol" />
+  <meta property="og:section" content="{{category}}" />
+  <meta property="og:tag" content="{{ tags.join(',') }}" />
+  {% endif %}
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="alternate" type="application/rss+xml" href="feed.xml">
-    <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://ruxu.dev{{page.url}}" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"></noscript>
+  <link rel="manifest" href="manifest.json">
+  <link rel="alternate" type="application/rss+xml" href="feed.xml">
+  <meta name="color-scheme" content="light dark">
 
-    <link defer href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  </noscript>
 
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-      }
-    </script>
+  <link defer href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
 
-    <style>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+
+  <style>
+    body {
+      background: #fefefe;
+      color: #222;
+      font-family: 'Roboto', sans-serif;
+      padding: 1rem;
+      line-height: 1.8;
+    }
+
+    #main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 5vw;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #000;
+      font-size: 2em;
+    }
+
+    h2 {
+      font-weight: normal;
+      margin-top: 1em;
+      font-size: 1.5em;
+    }
+
+    header,
+    main {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+
+    header #icons {
+      display: flex;
+    }
+
+    header #icons img {
+      width: 24px;
+      margin: 0 8px;
+      height: 100%;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    figure {
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      text-align: center;
+    }
+
+    time {
+      color: #615b5b;
+      display: block;
+    }
+
+    span.read-time {
+      color: #615b5b;
+    }
+
+    p {
+      color: #615b5b;
+    }
+
+    p#introduction {
+      margin-top: 0;
+    }
+
+    ul#types-of-posts {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    ul#types-of-posts li {
+      display: inline-block;
+      margin-right: 1rem;
+      font-weight: bold;
+    }
+
+    ul#types-of-posts li:after {
+      content: "·";
+      margin-left: 1rem;
+    }
+
+    ul#types-of-posts li:last-child:after {
+      content: "";
+      margin-left: 0;
+    }
+
+    ul.blog-entry-list {
+      padding: 0;
+    }
+
+    li.blog-entry-summary {
+      list-style-type: none;
+      margin-bottom: 2em;
+    }
+
+    li.blog-entry-summary img {
+      cursor: pointer;
+      object-fit: contain;
+      width: 150px;
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      margin-right: 1em;
+    }
+
+    li.blog-entry-summary div.blog-entry-summary-content {
+      display: flex;
+      cursor: pointer;
+    }
+
+    li.blog-entry-summary div.blog-entry-summary-title {
+      flex: 1;
+      vertical-align: top;
+    }
+
+    li.blog-entry-summary h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+      margin-bottom: 0;
+    }
+
+    li.blog-entry-summary p {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    li.blog-entry-summary a {
+      font-weight: bold;
+    }
+
+    li.blog-entry-summary a:hover,
+    li.blog-entry-summary a:visited {
+      color: #5a5a5a;
+    }
+
+    .more {
+      color: #1a1a1a;
+      font-weight: bold;
+    }
+
+    .more:hover,
+    .more:visited {
+      color: #5a5a5a;
+    }
+
+    span.inline-separator {
+      margin: 0 0.5em;
+    }
+
+    @media (prefers-color-scheme: dark) {
       body {
-        background: #fefefe;
-        color: #222;
-        font-family: 'Roboto', sans-serif;
-        padding: 1rem;
-        line-height: 1.8;
+        background: #222;
+        color: #fff;
       }
-      #main-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 0 5vw;
-        flex-direction: column;
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #ceceff;
       }
-      h1 {
-        color: #000;
-        font-size: 2em;
+
+      p,
+      article p {
+        color: #fff;
       }
-      h2 {
-        font-weight: normal;
-        margin-top: 1em;
-        font-size: 1.5em;
-      }
-      header, main {
-        max-width: 900px;
-        width: 100%;
-      }
-      header {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: stretch;
-      }
-      header #icons {
-        display: flex;
-      }
-      header #icons img {
-        width: 24px;
-        margin: 0 8px;
-        height: 100%;
-      }
-      p {
-        text-align: justify;
-      }
-      a {
-        text-decoration: none;
-      }
-      figure {
-        margin-inline-start: 0;
-        margin-inline-end: 0;
-        text-align: center;
-      }
-      time {
-        color: #615b5b;
-        display: block;
-      }
-      span.read-time {
-        color: #615b5b;
-      }
-      p {
-        color: #615b5b;
-      }
-      p#introduction {
-        margin-top: 0;
-      }
-      ul#types-of-posts {
-        padding: 0;
-        list-style-type: none;
-      }
-      ul#types-of-posts li {
-        display: inline-block;
-        margin-right: 1rem;
-        font-weight: bold;
-      }
-      ul#types-of-posts li:after {
-        content: "·";
-        margin-left: 1rem;
-      }
-      ul#types-of-posts li:last-child:after {
-        content: "";
-        margin-left: 0;
-      }
-      ul.blog-entry-list {
-        padding: 0;
-      }
-      li.blog-entry-summary {
-        list-style-type: none;
-        margin-bottom: 2em;
-      }
-      li.blog-entry-summary img {
-        cursor: pointer;
-        object-fit: contain;
-        width: 150px;
-        align-self: flex-start;
-        margin-top: 0.5rem;
-        margin-right: 1em;
-      }
-      li.blog-entry-summary div.blog-entry-summary-content {
-        display: flex;
-        cursor: pointer;
-      }
-      li.blog-entry-summary div.blog-entry-summary-title {
-        flex: 1;
-        vertical-align: top;
-      }
-      li.blog-entry-summary h2 {
-        margin-top: 0;
-        font-size: 1.5em;
-        margin-bottom: 0;
-      }
-      li.blog-entry-summary p {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-      }
-      li.blog-entry-summary a {
-        font-weight: bold;
-      }
-      li.blog-entry-summary a:hover, li.blog-entry-summary a:visited {
-        color: #5a5a5a;
-      }
-      .more {
-        color: #1a1a1a;
-        font-weight: bold;
-      }
-      .more:hover, .more:visited {
-        color: #5a5a5a;
-      }
-      span.inline-separator {
-        margin: 0 0.5em;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: #222;
-          color: #fff;
-        }
-      }
-    </style>
-    <link rel="preload" href="styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles/main.css"></noscript>
-  </head>
-  <body>
-    <div id="main-container">
-      <header>
-        <div>
-          <a href="/"><h1>Roger Oriol</h1></a>
-        </div>
-        <div id="icons">
-          <a target="blank" href="https://github.com/rogiia"><img src="assets/icons/github.svg" title="Github" alt="Github" /></a>
-          <a target="blank" href="feed.xml"><img src="assets/icons/rss.svg" title="RSS" alt="RSS" /></a>
-          <a target="blank" href="https://x.com/rogiia"><img src="assets/icons/x.svg" title="X (formerly Twitter)" alt="X" /></a>
-          <a href="mailto:rogeroriwd@gmail.com"><img src="assets/icons/email.svg" title="Email" alt="Email" /></a>
-        </div>
-      </header>
-      <main>
-        {{ content | safe }}
-      </main>
-    </div>
-  </body>
+    }
+  </style>
+  <link rel="preload" href="styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="styles/main.css">
+  </noscript>
+</head>
+
+<body>
+  <div id="main-container">
+    <header>
+      <div>
+        <a href="/">
+          <h1>Roger Oriol</h1>
+        </a>
+      </div>
+      <div id="icons">
+        <a target="blank" href="https://github.com/rogiia"><img src="assets/icons/github.svg" title="Github"
+            alt="Github" /></a>
+        <a target="blank" href="feed.xml"><img src="assets/icons/rss.svg" title="RSS" alt="RSS" /></a>
+        <a target="blank" href="https://x.com/rogiia"><img src="assets/icons/x.svg" title="X (formerly Twitter)"
+            alt="X" /></a>
+        <a href="mailto:rogeroriwd@gmail.com"><img src="assets/icons/email.svg" title="Email" alt="Email" /></a>
+      </div>
+    </header>
+    <main>
+      {{ content | safe }}
+    </main>
+  </div>
+</body>
+
 </html>

@@ -81,12 +81,6 @@ share-button button:hover {
 
 /* dark mode */
 @media (prefers-color-scheme: dark) {
-  h1, h2, h3, h4 {
-    color: #ceceff;
-  }
-  p, article p {
-    color: #fff;
-  }
   span.read-time, time {
     color: #ddbebe;
   }
