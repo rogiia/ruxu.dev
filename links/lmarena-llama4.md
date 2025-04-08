@@ -14,4 +14,4 @@ tags:
 
 We now have acknowledgement from LMArena of what we already knew: AI labs are cheating to get their models as high as possible in the LMArena leaderboard / benchmarks.
 
-This is inevitable, all of them want to win the AI race at any cost. If you don't want to be fooled by ever-slighltly-increasing benchmarks, you should set up your own benchmarks that measure their performance on your own use cases. 
+This is inevitable, all of them want to win the AI race at any cost. If you don't want to be fooled by ever-slightly-increasing benchmarks, you should set up your own benchmarks that measure their performance on your own use cases. 
