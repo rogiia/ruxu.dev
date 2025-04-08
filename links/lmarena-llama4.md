@@ -2,7 +2,7 @@
 layout: link.njk
 title: "[Quote] LMArena on X"
 category: ai
-externalUrl: https://thomwolf.io/blog/scientific-ai.html
+externalUrl: https://x.com/lmarena_ai/status/1909397817434816562
 date: 2025-04-08
 tags:
   - post
