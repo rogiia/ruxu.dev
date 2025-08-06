@@ -13,7 +13,7 @@ tags:
 Just like Sam Altman hinted at a while ago, OpenAI just released two open-weight models trying to appease the common criticism of being a company with "Open" in the name that hasn't released any open language models in a long while (since GPT-2!).
 
 The new open-weights models (not open-source like the name seems to imply) are Mixture-of-experts models with:
-- **116.83 billion** parameters with **5.13 billion active parameters**. It has **128 experts** and activates 4 experts for each token.
+- **116.83 billion parameters** with **5.13 billion active parameters**. It has **128 experts** and activates 4 experts for each token.
 - **20.91 billion parameters** with **3.61 billion active parameters**. It has **32 experts** and activates 4 experts for each token.
 
 Both models are **reasoning models** and therefore OpenAI compares them to their own o3 and o4 models. It seems like the 120b version is comparable to o4-mini and the 20b version is comparable to o3-mini. The new models have been throughoutly trained for agentic tasks as in the post-training stage, they were trained specifically to use a **browser tool** and a **python code execution tool**, as well as other generic tools.
