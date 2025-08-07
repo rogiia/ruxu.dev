@@ -15,14 +15,19 @@ It's not at all straightforward to understand the variants of the GPT-5 model re
 > It can be helpful to think of the GPT-5 models as successors to previous models:
 > *Table 1: Model progressions*
 
-|Previous model|GPT-5 model|
-----
-|GPT-4o|gpt-5-main|
-|GPT-4o-mini|gpt-5-main-mini|
-|OpenAI o3|gpt-5-thinking|
-|OpenAI o4-mini|gpt-5-thinking-mini|
-|GPT-4.1-nano|gpt-5-thinking-nano|
-|OpenAI o3 Pro|gpt-5-thinking-pro|
+<table>
+<thead>
+<td>Previous model</td><td>GPT-5 model</td>
+</thead>
+<tbody>
+<td>GPT-4o</td><td>gpt-5-main</td>
+<td>GPT-4o-mini</td><td>gpt-5-main-mini</td>
+<td>OpenAI o3</td><td>gpt-5-thinking</td>
+<td>OpenAI o4-mini</td><td>gpt-5-thinking-mini</td>
+<td>GPT-4.1-nano</td><td>gpt-5-thinking-nano</td>
+<td>OpenAI o3 Pro</td><td>gpt-5-thinking-pro</td>
+</tbody>
+</table>
 
 The answer is that the gpt-5 model is composed of the gpt-5-main model, the gpt-5-thinking model and a router that selects the model to send the prompt to:
 
