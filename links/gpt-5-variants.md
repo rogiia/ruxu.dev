@@ -14,6 +14,7 @@ It's not at all straightforward to understand the variants of the GPT-5 model re
 
 > It can be helpful to think of the GPT-5 models as successors to previous models:
 > *Table 1: Model progressions*
+
 |Previous model|GPT-5 model|
 ----
 |GPT-4o|gpt-5-main|
