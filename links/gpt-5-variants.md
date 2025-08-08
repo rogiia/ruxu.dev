@@ -13,7 +13,7 @@ tags:
 It's not at all straightforward to understand the variants of the GPT-5 model released today. The API docs describe four models: gpt-5, gpt-5-mini, gpt-5-nano and gpt-5-chat. However, the system card describes 6 models to replace older models, and none of the names match with the API:
 
 > It can be helpful to think of the GPT-5 models as successors to previous models:
-
+>
 > *Table 1: Model progressions*
 
 <table>
@@ -30,6 +30,7 @@ It's not at all straightforward to understand the variants of the GPT-5 model re
 </tbody>
 </table>
 
+<br />
 The answer is that the gpt-5 model is composed of the gpt-5-main model, the gpt-5-thinking model and a router that selects the model to send the prompt to:
 
 > GPT-5 is a unified system with a smart and fast model that answers most questions, a deeper reasoning model for harder problems, and a real-time router that quickly decides which model to use...
