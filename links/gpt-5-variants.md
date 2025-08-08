@@ -13,6 +13,7 @@ tags:
 It's not at all straightforward to understand the variants of the GPT-5 model released today. The API docs describe four models: gpt-5, gpt-5-mini, gpt-5-nano and gpt-5-chat. However, the system card describes 6 models to replace older models, and none of the names match with the API:
 
 > It can be helpful to think of the GPT-5 models as successors to previous models:
+
 > *Table 1: Model progressions*
 
 <table>
@@ -20,12 +21,12 @@ It's not at all straightforward to understand the variants of the GPT-5 model re
 <td>Previous model</td><td>GPT-5 model</td>
 </thead>
 <tbody>
-<td>GPT-4o</td><td>gpt-5-main</td>
-<td>GPT-4o-mini</td><td>gpt-5-main-mini</td>
-<td>OpenAI o3</td><td>gpt-5-thinking</td>
-<td>OpenAI o4-mini</td><td>gpt-5-thinking-mini</td>
-<td>GPT-4.1-nano</td><td>gpt-5-thinking-nano</td>
-<td>OpenAI o3 Pro</td><td>gpt-5-thinking-pro</td>
+<tr><td>GPT-4o</td><td>gpt-5-main</td></tr>
+<tr><td>GPT-4o-mini</td><td>gpt-5-main-mini</td></tr>
+<tr><td>OpenAI o3</td><td>gpt-5-thinking</td></tr>
+<tr><td>OpenAI o4-mini</td><td>gpt-5-thinking-mini</td></tr>
+<tr><td>GPT-4.1-nano</td><td>gpt-5-thinking-nano</td></tr>
+<tr><td>OpenAI o3 Pro</td><td>gpt-5-thinking-pro</td></tr>
 </tbody>
 </table>
 
