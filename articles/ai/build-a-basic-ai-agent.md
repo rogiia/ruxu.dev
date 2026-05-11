@@ -47,8 +47,7 @@ load_dotenv()
 
 def get_llm_client():
     return OpenAI(
-        base_url="http://localhost:11434/v1",
-        api_key=os.environ.get("LITELLM_SECRET_KEY"),
+        base_url="http://localhost:11434/v1"
     )
 
 
