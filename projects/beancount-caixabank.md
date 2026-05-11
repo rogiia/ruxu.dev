@@ -8,7 +8,6 @@ github_link: "https://github.com/rogiia/beancount-caixabank"
 project_link: ""
 date: 2026-01-04
 tags:
-  - post
   - project
   - finances
 ---

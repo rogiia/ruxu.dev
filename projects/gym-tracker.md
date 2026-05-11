@@ -8,7 +8,6 @@ github_link: "https://github.com/rogiia/gym-tracker"
 project_link: ""
 date: 2025-11-02
 tags:
-  - post
   - project
   - fitness
 ---

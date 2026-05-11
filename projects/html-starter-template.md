@@ -8,7 +8,6 @@ github_link: "https://github.com/rogiia/html-starter-template"
 project_link: ""
 date: 2025-03-22
 tags:
-  - post
   - project
   - web
 ---
