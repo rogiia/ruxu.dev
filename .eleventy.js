@@ -86,6 +86,13 @@ module.exports = function(eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
+  // Pre-render markdown content into a data property so it's available
+  // for the RSS feed without triggering templateContent timing issues.
+  // This avoids the TemplateContentPrematureUseError with chained layouts.
+  eleventyConfig.addPreprocessor("renderMarkdownForRss", "md", (data, content) => {
+    data.renderedContent = markdownLibrary.render(content);
+  });
+
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
