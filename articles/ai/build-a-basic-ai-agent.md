@@ -39,10 +39,7 @@ To build the agent, first you will need to have access to a model. For this exam
 
 ```python
 import os
-from dotenv import load_dotenv
 from openai import OpenAI
-
-load_dotenv()
 
 
 def get_llm_client():
