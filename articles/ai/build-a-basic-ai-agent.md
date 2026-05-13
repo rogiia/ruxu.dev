@@ -44,7 +44,8 @@ from openai import OpenAI
 
 def get_llm_client():
     return OpenAI(
-        base_url="http://localhost:11434/v1"
+        base_url="http://localhost:11434/v1",
+        api_key=""
     )
 
 
@@ -85,6 +86,14 @@ if __name__ == "__main__":
 - We send the new whole conversation, including the last user message, to the AI model, requesting a response from it.
 - The AI model response is appended to the conversation history.
 - The loop runs forever until the user types `\exit`.
+
+If we run the this agent loop, we will be able to take turns and ask this agent questions. This agent doesn't have access to outside information, so it will only be able to answer based on its internal knowledge:
+
+```bash
+$ python agent.py
+You: What's the capital city of Germany?
+Assistant: The capital city of Germany is **Berlin**.
+```
 
 ## What You've Built
 
