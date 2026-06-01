@@ -78,6 +78,8 @@ if __name__ == "__main__":
     agent_loop(client)
 ```
 
+> You can find and clone this code in this blog series' [Github repo](https://github.com/rogiia/basic-agent-harness).
+
 ### What's happening here?
 
 - First, we use the `get_llm_client` function to create a LLM connection to the local instance of Ollama.

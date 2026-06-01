@@ -20,7 +20,7 @@ If we want our agent to be more useful and do work in behalf of us, we have to g
 
 ## What are Tools?
 
-A **tool** are just *programs or functions* that you expose to your LLM to allow it to invoke them autonomously. A tool can be as simple as a Python function implemented in the same agent code and as complex as an MCP (Model Context Protocol) server that does a HTTP request to an API that reads or updates a database.
+A **tool** is a *program or function* that you expose to your LLM to allow it to invoke it autonomously. A tool can be as simple as a Python function implemented in the same agent code and as complex as an MCP (Model Context Protocol) server that does a HTTP request to an API that reads or updates a database.
 
 > Note: MCP is not covered in this part of the series but it will be covered in the future.
 
@@ -338,6 +338,8 @@ def agent_loop(client):
                 print(f"Assistant: {message.content}")
                 break
 ```
+
+> You can find and clone this code in this blog series' [Github repo](https://github.com/rogiia/basic-agent-harness).
 
 Let's test our new and more powerful agent! If we run the updated agent we can use many tools to accomplish for example fetching a web page and writing a file based on it:
 
