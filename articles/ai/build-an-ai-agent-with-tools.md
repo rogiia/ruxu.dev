@@ -339,7 +339,7 @@ def agent_loop(client):
                 break
 ```
 
-> You can find and clone this code in this blog series' [Github repo](https://github.com/rogiia/basic-agent-harness).
+> You can find and clone this code in this blog series' <a href="https://github.com/rogiia/basic-agent-harness" target="_blank">Github repo</a>.
 
 Let's test our new and more powerful agent! If we run the updated agent we can use many tools to accomplish for example fetching a web page and writing a file based on it:
 

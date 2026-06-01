@@ -78,7 +78,7 @@ if __name__ == "__main__":
     agent_loop(client)
 ```
 
-> You can find and clone this code in this blog series' [Github repo](https://github.com/rogiia/basic-agent-harness).
+> You can find and clone this code in this blog series' <a href="https://github.com/rogiia/basic-agent-harness" target="_blank">Github repo</a>.
 
 ### What's happening here?
 
