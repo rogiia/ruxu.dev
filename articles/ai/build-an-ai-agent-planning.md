@@ -312,6 +312,81 @@ I also added to the system prompt a little comment explaining to the model that 
 
 To test our new and powerful agent, we will have to give it a really hard goal. In my case, I asked it to migrate my static site from using Eleventy to Hugo:
 
+```bash
+$ python ../agent-harness/agent-planning/agent.py
+You: Explore this static site project and migrate it from Eleventy to Hugo
+  [tool] write_scratchpad({'content': 'Goal: inspect the static site project, understand the current Eleventy setup, and migrate it to Hugo.\nSurvey: I have not yet inspected the repo. Nee
+d to identify project structure, config, templates, content, assets, and build scripts.\nOptions: I could try an incremental migration by reproducing the Eleventy output structure in Hugo,
+ or do a clean Hugo reorganization. Incremental is safer because it preserves content and design while minimizing surprises.\nFailure modes: Missing Eleventy-specific features (shortcodes,
+ data files, filters, collections) could break the build. Hugo template syntax and content organization differ, so I need to map those carefully. Tests/build may fail if config or paths ar
+e wrong.\nNext action: inspect the repository root to find the project files.'})
+  [tool result] Successfully written content into scratchpad
+  [tool] todo_append({'id': 'migrate-1', 'content': 'Inspect repository structure and identify Eleventy/Hugo-related files', 'status': 'pending'})
+  [tool result] Successfully appended to do item migrate-1 in to do list!
+  [tool] todo_append({'id': 'migrate-2', 'content': 'Map Eleventy templates/content/assets to Hugo equivalents', 'status': 'pending'})
+  [tool result] Successfully appended to do item migrate-2 in to do list!
+  [tool] todo_append({'id': 'migrate-3', 'content': 'Implement Hugo configuration, templates, and content migration', 'status': 'pending'})
+  [tool result] Successfully appended to do item migrate-3 in to do list!
+  [tool] todo_append({'id': 'migrate-4', 'content': 'Run build verification and fix any issues', 'status': 'pending'})
+  [tool result] Successfully appended to do item migrate-4 in to do list!
+  [tool] run_bash({'command': "pwd && echo '---' && find . -maxdepth 2 -type f | sed 's#^./##' | sort | head -200"})
+[........]
+  [tool] run_bash({'command': 'hugo --minify'})
+  [tool result] Start building sites … 
+hugo v0.152.2-6abdacad3f3fe944ea42177844469139e81feda6 darwin/arm64 BuildDate=2025-10-24T15:31:49Z VendorInfo=gohugoio
+
+
+                  │ EN 
+──────────────────┼────
+ Pages ...
+  [tool] todo_update({'id': 'migrate-4', 'status': 'done'})
+  [tool result] Successfully updated to do item migrate-4!
+  [tool] todo_list({'include_completed': True})
+  [tool result] To Do List (4 items)
+0 pending items
+0 in_progress items
+4 done items
+0 cancelled items
+0 failed items
+-----
+- [migrate-1] Inspect repository structure and identify Eleventy/Hugo-related files (done)
+...
+Assistant: Migrated the site from Eleventy to Hugo and verified the build passes.
+
+What I changed:
+- Added Hugo config in `hugo.toml`
+- Created Hugo layouts:
+  - `layouts/_default/baseof.html`
+  - `layouts/index.html`
+  - `layouts/_default/list.html`
+  - `layouts/_default/single.html`
+  - `layouts/404.html`
+  - `layouts/_default/rss.xml`
+- Migrated content into Hugo’s `content/` structure
+- Copied static assets into `static/`
+- Updated `package.json` scripts to use Hugo:
+  - `build`: `hugo`
+  - `serve`: `hugo server -D`
+  - `test`: `hugo`
+
+Verification:
+- Ran `hugo --minify`
+- Build completed successfully
+
+Notes:
+- I preserved the site’s existing URL structure as closely as possible:
+  - `/articles/...`
+  - `/links/...`
+  - `/projects/...`
+  - `/recent/`
+- Hugo now serves the site instead of Eleventy
+- Old Eleventy files are still present in the repo, but they’re no longer part of the Hugo build
+
+If you want, I can also clean up the leftover Eleventy-specific files and simplify the repo further.
+```
+
+When I got back a few minutes ago, the site was successfully migrated to Hugo!
+
 ## What You've Built
 
 This agent is now capable enough not just to work on it's own, but also to work on really hard and long tasks. It can plan, break down tasks, recover and replan if anything goes wrong, and just keep working until the work is done or it hits a wall.
