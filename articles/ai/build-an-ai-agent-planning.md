@@ -76,9 +76,9 @@ def write_scratchpad(content: str):
     """
     scratchpad.write(content)
     return "Successfully written content into scratchpad"
+```
 
 > You can find and clone this code in this blog series' <a href="https://github.com/rogiia/basic-agent-harness" target="_blank">Github repo</a>.
-```
 ```
 ```
 
