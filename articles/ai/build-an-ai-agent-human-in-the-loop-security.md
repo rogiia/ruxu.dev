@@ -17,6 +17,8 @@ Previous parts of *Build a Basic AI Agent From Scratch*:
 - [Tools](https://www.ruxu.dev/articles/ai/build-an-ai-agent-with-tools/)
 - [Long Task Planning](https://www.ruxu.dev/articles/ai/build-an-ai-agent-planning/)
 
+> You can find and clone this code in this blog series' <a href="https://github.com/rogiia/basic-agent-harness" target="_blank">Github repo</a>.
+
 In the previous part of the *Build A Basic AI Agent From Scratch* series, we gave our agent the ability to plan and work on long tasks. We added a scratchpad, a to-do list and a system prompt that explains to the model how to break work down, recover from failures and keep going until the task is actually done.
 
 That made the agent much more useful, but it also made it more dangerous. Running commands and editing files indiscriminately can have bad consequences that cannot be undone. We want our agent to be able to work autonomously but at the same time check with you before running potentially harmful tools.
