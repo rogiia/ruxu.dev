@@ -299,8 +299,6 @@ _SENSITIVE_ARG_TOKENS = (
     "169.254.169.254",  # cloud metadata
 )
 
-> `169.254.169.254` is the link-local address that cloud providers (AWS, GCP, Azure) use to expose instance metadata. Any process running on a cloud VM can query it — without credentials — to read the instance's IAM role credentials, user-data scripts, and other configuration.
-
 # Tools whose output is most likely to carry injection attempts and
 # whose side effects are most dangerous if an injection succeeds.
 _HIGH_RISK_TOOLS = {"run_bash", "write_file", "edit_file", "webfetch"}
@@ -334,6 +332,8 @@ def intent_check(
 
     return True, None
 ```
+
+> `169.254.169.254` is the link-local address that cloud providers (AWS, GCP, Azure) use to expose instance metadata. Any process running on a cloud VM can query it — without credentials — to read the instance's IAM role credentials, user-data scripts, and other configuration.
 
 The check is intentionally conservative. It only fires on high-risk tools (`run_bash`, `write_file`, `edit_file`, `webfetch`) whose arguments reference sensitive tokens (`password`, `.env`, `169.254.169.254`, ...) that are **not** mentioned in the user's original goal or the current scratchpad.
 
