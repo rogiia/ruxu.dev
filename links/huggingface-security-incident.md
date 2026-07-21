@@ -23,7 +23,7 @@ My takeaway from this incident is that blocking frontier model's capabilities do
 
 Plus, models with Mythos and Sol-level cyberattacking capabilities are now freely available as open models in Kimi K3 and Qwen 3.8. Right now, it seems pretty pointless for Anthropic and OpenAI to abliterate those models and will likely lead to the US trailing in cybersecurity capabilities.
 
-As a bonus to the story, it seems that the HuggingFace attacker was actually OpenAI, who published a security incident report:
+As a bonus to the story, it seems that the HuggingFace attacker was actually OpenAI, who published a <a href="https://openai.com/index/hugging-face-model-evaluation-security-incident/" target="_blank">security incident report</a>:
 
 > The models identified and chained vulnerabilities across OpenAI’s research environment and Hugging Face’s production infrastructure to obtain test solutions directly from Hugging Face’s production database. All evidence suggests that the models were hyperfocused on finding a solution for ExploitGym, going to extreme lengths to achieve a rather narrow testing goal.
 > After gaining Internet access, the models inferred that Hugging Face potentially hosted models, datasets and solutions for ExploitGym. Knowing this, the model searched for and successfully found ways to gain access to secret information that it could use to cheat the evaluation. In one example, the model chained together multiple attack vectors, including using stolen credentials and zero-day vulnerabilities to find a remote code execution path on the Hugging Face servers. OpenAI’s security team discovered this anomalous activity internally.
