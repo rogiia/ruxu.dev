@@ -24,9 +24,9 @@ In the previous part we gave our agent a basic safety model: permission modes, a
 
 These measures ultimately put the burden of security on the human instead of the machine, since the machine cannot be trusted. In many cases, this won't be enough. A human can be wrong, or they can glance over security issues because they are tired, or simply don't care. Once a tool call is approved by the human, the agent is free to run around and do all the damage its host allows it to do.
 
-In this part we will start closing the gaps left open by human in the loop. We will move tool execution into a **Docker sandbox** so a runaway command can only touch the project directory, add **prompt-injection defenses** so the model stops trusting tool output as instructions, and validate every tool input against its **schema** before it runs. The remaining controls — resource and cost limits, secret scrubbing, audit logging, and a kill switch — are covered in the next part.
+In this part we will start closing the security gaps we still have in our agent harness. We will move tool execution into a **Docker sandbox** so a runaway command can only touch the project directory, add **prompt-injection defenses** so the model stops trusting tool output as instructions, and validate every tool input against its **schema** before it runs.
 
-## A Checklist-Driven Approach
+## The Security Checklist
 
 Before writing code, it helps to lay out everything a production-grade agent harness should defend against. The codebase ships a small checklist that captures the threat model in six sections:
 
@@ -37,19 +37,17 @@ Before writing code, it helps to lay out everything a production-grade agent har
 5. Secret & Credential Management: no secrets in prompts, harness-level injection, per-session rotation
 6. Observability & Kill Switches: structured decision logs, human checkpoints, session-level abort
 
-The previous part covered the user-facing slice of (2): permission modes and clarification. This part and the next cover the rest. Each control lands in its own module so the rules are easy to audit and extend:
+The previous part covered the user-facing slice of (2): permission modes and clarification. This part and the next cover the rest. Each control lands in its own module in the agent source code so the rules are easy to audit and extend:
 
-| File | Purpose |
-|------|---------|
-| `prompt_safety.py` | Delimiters, trust-boundaries prompt, external-data wrapping, intent drift check |
-| `tool_policy.py` | Path scoping, shell denylist, SSRF guard, always-confirm patterns |
-| `tools/validators.py` | Dependency-free JSON-Schema validation + bounded output scope |
-| `resource_limits.py` | Iteration caps, context trimming, cost tracker |
-| `secret_management.py` | Env scan, system-prompt audit, container env scrub, session tokens |
-| `session_control.py` | Abort controller, in-flight kill, file rollback |
-| `tools/audit.py` | Append-only JSONL audit of every decision step |
-| `tools/sandbox.py` | Docker container for action tools, per-call timeout, env injection |
-| `agent.py` | Orchestration: wires every control into the agent loop |
+- `prompt_safety.py`: Delimiters, trust-boundaries prompt, external-data wrapping, intent drift check.
+- `tool_policy.py`: Path scoping, shell denylist, SSRF guard, always-confirm patterns.
+- `tools/validators.py`: Dependency-free JSON-Schema validation + bounded output scope.
+- `resource_limits.py`: Iteration caps, context trimming, cost tracker.
+- `secret_management.py`: Env scan, system-prompt audit, container env scrub, session tokens.
+- `session_control.py`: Abort controller, in-flight kill, file rollback.
+- `tools/audit.py`: Append-only JSONL audit of every decision step.
+- `tools/sandbox.py`: Docker container for action tools, per-call timeout, env injection.
+- `agent.py`: Orchestration: wires every control into the agent loop.
 
 ## Sandbox: Execution Security
 
@@ -82,11 +80,14 @@ class DockerSandbox:
         project_root: Path,
         tools_dir: Path,
         network: str = "bridge",
+        image: str = DEFAULT_IMAGE,
+        build_context: Path | None = None,
         exec_timeout: float = EXEC_TIMEOUT_S,
         container_env: dict | None = None,
     ):
         # ...
         self.container = f"agent-sandbox-{uuid.uuid4().hex[:8]}"
+
         self._ensure_image()
         self._start_container()
 ```
@@ -103,7 +104,7 @@ def _start_container(self) -> None:
     gid = os.getgid() if hasattr(os, "getgid") else 0
 
     cmd = [
-        "docker", "run", "-d",
+        *self.runtime, "run", "-d",
         "--name", self.container,
         "--network", self.network,
         "--user", f"{uid}:{gid}",
@@ -125,31 +126,46 @@ def _start_container(self) -> None:
     # ...
 ```
 
+
+> `self.runtime` can be set to either `docker` or `podman` depending on what you have installed on your machine.
+
 Note the `container_env` loop: the container inherits only an allowlist of env vars the harness explicitly passes (more on that in the secrets section). Host credentials never reach the container.
 
 A tool call is then a `docker exec` that pipes the args in as JSON and reads the result from stdout:
 
 ```python
-def run_tool(self, name: str, args: dict) -> str:
-    try:
-        proc = subprocess.run(
-            [
-                "docker", "exec", "-i",
-                self.container,
-                "python", "/agent_tools/_dispatch.py", name,
-            ],
-            input=json.dumps(args),
-            capture_output=True,
-            text=True,
-            timeout=self.exec_timeout,
-        )
-    except subprocess.TimeoutExpired:
-        raise DockerSandboxError(
-            f"Tool '{name}' timed out after {self.exec_timeout:.0f}s. "
-            "The command did not finish in the allowed time. Do not "
-            "retry the same call — adjust the approach or ask the user."
-        )
-    # ...
+    def run_tool(self, name: str, args: dict) -> str:
+        """Execute *name* with *args* inside the container, return its output.
+
+        enforces a per-call timeout (``self.exec_timeout``).  A
+        timeout is reported back as a ``DockerSandboxError`` with a
+        clear message so the LLM knows not to retry blindly.
+        """
+        try:
+            proc = subprocess.run(
+                [
+                    *self.runtime, "exec", "-i",
+                    self.container,
+                    "python", "/agent_tools/_dispatch.py", name,
+                ],
+                input=json.dumps(args),
+                capture_output=True,
+                text=True,
+                timeout=self.exec_timeout,
+            )
+        except subprocess.TimeoutExpired:
+            raise DockerSandboxError(
+                f"Tool '{name}' timed out after {self.exec_timeout:.0f}s. "
+                "The command did not finish in the allowed time. Do not "
+                "retry the same call — adjust the approach or ask the user."
+            )
+        if proc.returncode != 0:
+            err = (proc.stderr or proc.stdout or "").strip()
+            raise DockerSandboxError(
+                f"Container exec for '{name}' failed (exit {proc.returncode}): {
+                    err}"
+            )
+        return proc.stdout
 ```
 
 Now when the agent calls `run_bash("rm -rf /")`, the worst it can do is wipe the container's filesystem and thankfully not your whole machine.
