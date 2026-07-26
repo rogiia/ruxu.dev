@@ -4,7 +4,7 @@ title: "Build a Basic AI Agent From Scratch: Security III"
 subtitle: ""
 category: ai
 image: ""
-date: 2026-07-19
+date: 2026-07-27
 tags:
   - post
   - article
