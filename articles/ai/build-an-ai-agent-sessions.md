@@ -4,7 +4,7 @@ title: "Build a Basic AI Agent From Scratch: Session Management"
 subtitle: ""
 category: ai
 image: ""
-date: 2026-10-12
+date: 2026-10-18
 tags:
   - post
   - article
