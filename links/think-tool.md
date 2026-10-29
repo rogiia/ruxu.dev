@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] Claude Think Tool"
 category: ai
 externalUrl: https://www.anthropic.com/engineering/claude-think-tool
 date: 2025-03-22
 tags:
-  - post
-  - link
   - ai
 ---
 

@@ -1,14 +1,9 @@
 ---
-layout: article.njk
 title: "Build A Basic AI Agent From Scratch: Long Task Planning"
 subtitle: ""
-category: ai
 image: ""
 date: 2026-06-08
 tags:
-  - post
-  - article
-  - ai
   - agents
 ---
 

@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] Circuit Tracing: Revealing Computational Graphs in Language Models"
 category: ai
 externalUrl: https://transformer-circuits.pub/2025/attribution-graphs/methods.html
 date: 2025-03-30
 tags:
-  - post
-  - link
   - ai
 ---
 

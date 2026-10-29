@@ -1,18 +1,12 @@
 ---
-layout: article.njk
 title: "About the Dead Internet Theory and AI"
 subtitle: ""
-category: ai
-image: "assets/images/dead-internet-theory/desert.jpg"
+image: "/assets/images/dead-internet-theory/desert.jpg"
 date: 2025-02-23
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>
-<img style="width: auto" alt="Peter Steiner's 1993 cartoon, as published in The New Yorker" src="assets/images/dead-internet-theory/Internet_dog.jpg" />
+<img style="width: auto" alt="Peter Steiner's 1993 cartoon, as published in The New Yorker" src="/assets/images/dead-internet-theory/Internet_dog.jpg" />
 <figcaption>On the Internet nobody knows you are a dog... or an LLM</figcaption>
 </figure>
 

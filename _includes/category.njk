@@ -3,9 +3,9 @@ layout: base.njk
 title: Category
 ---
 {% if slug !== 'recent' %}
-<h2>Posts on <em>{{title}}</em></h2>
+<h1 class="page-heading">Posts on <em>{{title}}</em></h1>
 {% else %}
-<h2>{{title}}</h2>
+<h1 class="page-heading">{{title}}</h1>
 {% endif %}
 <ul class="blog-entry-list">
   {%- for post in posts -%}
@@ -14,23 +14,23 @@ title: Category
       <time datetime="{{ post.data.date | htmlDateString }}">{{post.data.date | readableDate}}</time>
       {% if post.data.tags | hasLinkTag %}
       <div class="blog-entry-summary-content">
-        <div class="blog-entry-summary-title" tabindex="0" role="link" onclick="window.open('{{post.data.externalUrl}}', '_blank').focus();" aria-label="{{post.data.title}}">
-          <h2>🔗 {{ post.data.title }}</h2>
+        <div class="blog-entry-summary-title" onclick="window.open('{{post.data.externalUrl}}', '_blank').focus();">
+          <h2>🔗 <a href="{{post.data.externalUrl}}" target="_blank" rel="noopener">{{ post.data.title }}</a></h2>
         </div>
       </div>
       {{ post.content | safe }}
       <a href="{{post.data.externalUrl}}" target="_blank">[[ Visit external link ]]</a>
       {% elseif post.data.tags | hasProjectTag %}
-      <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
+      <div class="blog-entry-summary-content" onclick="window.location='{{post.url}}'">
         {% if post.data.image %}
-        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" />
+        <img width="200" sizes="150px" src="{{post.data.image}}" alt="" onclick="window.location='{{post.url}}'" />
         {% endif %}
         <div class="blog-entry-summary-title">
-          <h2>🚧 [Project] {{post.data.title}}</h2>
+          <h2>🚧 [Project] <a href="{{post.url}}">{{post.data.title}}</a></h2>
           {% if post.data.subtitle %}
             <p>{{post.data.subtitle}}</p>
           {% else %}
-            <p>{{post.content | truncText}}...</p>
+            <p>{{ post.content | truncText }}</p>
           {% endif %}
         </div>
       </div>
@@ -38,16 +38,16 @@ title: Category
       {% if post.data.github_link and post.data.project_link %}<span class="inline-separator">·</span>{% endif %}
       {% if post.data.project_link %}<a href="{{post.data.project_link}}">[[ Go to project ]]</a>{% endif %}
       {% else %}
-      <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
+      <div class="blog-entry-summary-content" onclick="window.location='{{post.url}}'">
         {% if post.data.image %}
-        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" tabindex="0" />
+        <img width="200" sizes="150px" src="{{post.data.image}}" alt="" onclick="window.location='{{post.url}}'" />
         {% endif %}
         <div class="blog-entry-summary-title">
-          <h2>{{post.data.title}}</h2>
+          <h2><a href="{{post.url}}">{{post.data.title}}</a></h2>
           {% if post.data.subtitle %}
             <p>{{post.data.subtitle}}</p>
           {% else %}
-            <p>{{post.content | truncText}}...</p>
+            <p>{{ post.content | truncText }}</p>
           {% endif %}
         </div>
       </div>

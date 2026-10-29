@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Quote] 🔭 The Einstein AI model"
 category: ai
 externalUrl: https://thomwolf.io/blog/scientific-ai.html
 date: 2025-03-12
 tags:
-  - post
-  - link
   - ai
 ---
 

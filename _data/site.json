@@ -1,0 +1,17 @@
+{
+  "name": "Roger Oriol",
+  "title": "Blog | Roger Oriol",
+  "url": "https://ruxu.dev",
+  "locale": "en_US",
+  "description": "Discussing topics on web development, data architecture, software architecture and much more.",
+  "defaultImage": "assets/images/social/default.png",
+  "author": {
+    "name": "Roger Oriol",
+    "url": "https://ruxu.dev/",
+    "twitter": "@rogiia",
+    "sameAs": [
+      "https://github.com/rogiia",
+      "https://x.com/rogiia"
+    ]
+  }
+}

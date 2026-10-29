@@ -1,14 +1,9 @@
 ---
-layout: article.njk
 title: "Build a Basic AI Agent From Scratch: Security II"
 subtitle: ""
-category: ai
 image: ""
 date: 2026-07-21
 tags:
-  - post
-  - article
-  - ai
   - agents
 ---
 

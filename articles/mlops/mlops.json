@@ -1,0 +1,9 @@
+{
+  "layout": "article.njk",
+  "category": "mlops",
+  "tags": [
+    "post",
+    "article",
+    "mlops"
+  ]
+}

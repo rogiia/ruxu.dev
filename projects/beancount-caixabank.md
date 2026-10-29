@@ -1,5 +1,4 @@
 ---
-layout: project.njk
 title: "CaixaBank importer for Beancount"
 subtitle: "beancount-caixabank provides a Beancount importer for converting CaixaBank Excel statement exports to the Beancount format."
 category: finances
@@ -8,7 +7,6 @@ github_link: "https://github.com/rogiia/beancount-caixabank"
 project_link: ""
 date: 2026-01-04
 tags:
-  - project
   - finances
 ---
 

@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: HuggingFace Security Incident
 date: 2026-07-21
-category: ai security
+category: ai
 externalUrl: https://huggingface.co/blog/security-incident-july-2026
 tags:
-  - post
-  - link
   - ai
   - security
 ---

@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "Is the EU Falling Behind in the AI Race?"
 subtitle: ""
-category: ai
-image: "assets/images/eu-ai/eu-flag.jpg"
+image: "/assets/images/eu-ai/eu-flag.jpg"
 date: 2024-11-29
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>

@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "How to build a basic RAG app"
 subtitle: ""
-category: ai
-image: "assets/images/basic-rag/library.jpg"
+image: "/assets/images/basic-rag/library.jpg"
 date: 2024-05-29
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>
@@ -29,7 +23,7 @@ A basic RAG pipeline consists of three steps: **indexing, retrieval and generati
 First, we **extract the information** that the model needs from wherever it is. Generative models work with plain text (some models can also work with images or other formats, which can also be indexed, but this is a topic for another time). If the information is already in plain text, we are in luck. But it might also be in PDF documents, Word documents, Excel, Markdown, etc. We must **convert this data to plain text and clean it** so it can be usable for the model.
 
 <figure>
-<img alt="Indexing process" src="assets/images/basic-rag/indexing.png" />
+<img alt="Indexing process" src="/assets/images/basic-rag/indexing.png" />
 </figure>
 
 Once the information is in text format, we can **store it in a vector database**. The vector database will store the embeddings representation of that text. That will allow us to search for parts of the text that have a similar embedding representation as another text, therefore they are about a similar concept. We will **divide the whole text into smaller parts or chunks**, calculate the **embeddings representation** for each of them, and finally **store them in the vector database**.
@@ -39,7 +33,7 @@ Once the information is in text format, we can **store it in a vector database**
 When the user asks us a question, we can **convert that question into a vector representation**, using the same embeddings model we used to index the data. With that vector representation, we will **calculate the similarity factor between the question and each one of the chunks** stored in the vector database. We will select the top K chunks that are the most similar to the query, and therefore their contents are about the same concept as the question (and therefore they might contain the answer).
 
 <figure>
-<img alt="Retrieval process" src="assets/images/basic-rag/retrieval_diagram.png" />
+<img alt="Retrieval process" src="/assets/images/basic-rag/retrieval_diagram.png" />
 </figure>
 
 #### Generation
@@ -47,7 +41,7 @@ When the user asks us a question, we can **convert that question into a vector r
 A **prompt** is built, putting together the **user’s question and the relevant contexts** to help the LLM answer. We might also include previous messages from the conversation between the user and the AI assistant. The LLM generates an answer for the user based on the context, instead of its previously learned pre-training data.
 
 <figure>
-<img alt="Retrieval process" src="assets/images/basic-rag/generation_diagram.png" />
+<img alt="Retrieval process" src="/assets/images/basic-rag/generation_diagram.png" />
 </figure>
 
 ### Example
@@ -56,37 +50,37 @@ For this example, we will ingest a paper called “Retrieval-Augmented Generatio
 First, we will load the PDF document and parse it using LangChain’s PyPDF connector.
 
 <figure>
-<img alt="Load document using pypdf" src="assets/images/basic-rag/load_doc.png" />
+<img alt="Load document using pypdf" src="/assets/images/basic-rag/load_doc.png" />
 </figure>
 
 Once we have the text from the document, we have to split it into smaller chunks. We can use LangChain’s available splitters, like RecursiveCharacterSplitter in this case:
 
 <figure>
-<img alt="Split document into chunks" src="assets/images/basic-rag/split_doc.png" />
+<img alt="Split document into chunks" src="/assets/images/basic-rag/split_doc.png" />
 </figure>
 
 We will be using BGE-small, an opensource embeddings model. We will download it from HuggingFace Hub and run it on all chunks to calculate their vector representations.
 
 <figure>
-<img alt="Calculate embeddings" src="assets/images/basic-rag/embeddings.png" />
+<img alt="Calculate embeddings" src="/assets/images/basic-rag/embeddings.png" />
 </figure>
 
 Once we have the vector representations for all chunks, we can create an in-memory vector database and store all vectors in it. For this example, we will be using a FAISS database.
 
 <figure>
-<img alt="Load embeddings into the vector db" src="assets/images/basic-rag/vectordb.png" />
+<img alt="Load embeddings into the vector db" src="/assets/images/basic-rag/vectordb.png" />
 </figure>
 
 The database is now set up. Now, we will be taking queries from the user on this information. In this case, the user asks which are the drawbacks of Naive RAG. We encode this query using the same embeddings model as before. Then, we retrieve the top 5 most similar chunks to that query.
 
 <figure>
-<img alt="Retrieve documents similar to the query from the vectordb" src="assets/images/basic-rag/retrieval.png" />
+<img alt="Retrieve documents similar to the query from the vectordb" src="/assets/images/basic-rag/retrieval.png" />
 </figure>
 
 After retrieving the relevant context, we build a prompt using this information and the user’s original query. We will use Claude’s Haiku as a LLM for this example:
 
 <figure>
-<img alt="Use the context and the query to generate an answer" src="assets/images/basic-rag/generation.png" />
+<img alt="Use the context and the query to generate an answer" src="/assets/images/basic-rag/generation.png" />
 </figure>
 
 ### Common problems and pitfalls

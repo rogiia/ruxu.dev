@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "How to supercharge your LLM with Langchain Agents"
 subtitle: ""
-category: ai
-image: "assets/images/parrot.jpg"
+image: "/assets/images/parrot.jpg"
 date: 2023-08-06
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>
@@ -30,7 +24,7 @@ Agents are an LLM that is being prompted to **reason about the actions needed to
 Obviously, the Agent by itself is not enough. We also need to create/use tools for the Agent to be able to use. The **Agent Executor** is the runtime that executes both the Agent and the tools that it uses. **Tools** can just be standalone functions or they can come in collections of tools called **toolkits**. 
 
 <figure>
-<img alt="Agent Executor, Agents and Tools diagram" src="assets/images/LangChainAgents.svg" />
+<img alt="Agent Executor, Agents and Tools diagram" src="/assets/images/LangChainAgents.svg" />
 </figure>
 
 ## Tools and toolkits

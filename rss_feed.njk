@@ -9,7 +9,7 @@
     "url": "https://ruxu.dev/",
     "author": {
       "name": "Roger Oriol",
-      "email": "rogeroriwd@gmail.com"
+      "email": "roger@ruxu.dev"
     }
   }
 }
@@ -22,6 +22,8 @@
     <atom:link href="{{ permalink | url | absoluteUrl(metadata.url) }}" rel="self" type="application/rss+xml" />
     <description>{{ metadata.subtitle }}</description>
     <language>{{ metadata.language }}</language>
+    <managingEditor>{{ metadata.author.email }} ({{ metadata.author.name }})</managingEditor>
+    <lastBuildDate>{{ collections.post | getNewestCollectionItemDate | dateToRfc822 }}</lastBuildDate>
     {%- for post in collections.post | reverse %}
     {%- set absolutePostUrl = post.url | url | absoluteUrl(metadata.url) %}
     <item>

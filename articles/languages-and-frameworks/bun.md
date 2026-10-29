@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: Bun - What can I use it for?
 subtitle: "What is Bun, the new hot thing in the Javascript world? Why is it so fast and can I use it for my projects?"
-category: languages-and-frameworks
-image: assets/images/bun.png
+image: /assets/images/bun.png
 date: 2022-07-26
-tags:
-  - post
-  - article
-  - languages-and-frameworks
 ---
 
 

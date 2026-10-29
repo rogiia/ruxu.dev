@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "How to use LLMs: Summarize long documents"
 subtitle: ""
-category: ai
-image: "assets/images/summarize-long-doc/written_text.jpg"
+image: "/assets/images/summarize-long-doc/written_text.jpg"
 date: 2024-04-29
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>
@@ -25,7 +19,7 @@ Summary:
 ```
 
 <figure>
-<img alt="Summarization with direct use" src="assets/images/summarize-long-doc/direct-use.png" />
+<img alt="Summarization with direct use" src="/assets/images/summarize-long-doc/direct-use.png" />
 </figure>
 
 This might get tricky if the text to summarize is too long. There exist LLMs with very large window contexts:
@@ -46,13 +40,13 @@ Luckily, there exists a technique that can get an LLM to summarize a document lo
     - If the text has no clear sections or the sections are too large, the text can be divided in equal sized chunks character-wise. This last approach has the problem of separating related sentences in different chunks. To avoid this problem, we can have an overlap between chunks. With this solution, the last N characters of a chunk will be repeated as the first N characters of the next chunk, so context is not lost.
 
 <figure>
-<img alt="Summarization with direct use" src="assets/images/summarize-long-doc/chunks.png" />
+<img alt="Summarization with direct use" src="/assets/images/summarize-long-doc/chunks.png" />
 </figure>
 
 -	Second, all chunks are summarized separately using the LLM. Remember to tune your summarize prompt to help understand the model what kind of document it is and how to summarize it properly. For example, you might want the summary to be a bullet point list of the main points of the text or you might want the summary to be just a few sentences.
 
 <figure>
-<img alt="Map: Summarization of all chunks" src="assets/images/summarize-long-doc/map.png" />
+<img alt="Map: Summarization of all chunks" src="/assets/images/summarize-long-doc/map.png" />
 </figure>
 
 -	The third step is optional. If the combination of all summaries does not fit into the context window, we won’t be able to ask for a consolidated summary. Instead, we need to make the combination of all summaries smaller.
@@ -61,14 +55,14 @@ Luckily, there exists a technique that can get an LLM to summarize a document lo
     - After reducing all the summary groups, if the resulting combined summaries still don't fit in the context window, this process is executed again.
 
 <figure>
-<img alt="Combine: Consolidate summaries" src="assets/images/summarize-long-doc/combine.png" />
+<img alt="Combine: Consolidate summaries" src="/assets/images/summarize-long-doc/combine.png" />
 </figure>
 
 -	Lastly, when all summaries fit into the context window, we can finally combine or reduce them into the final summary.
     - We will write a prompt that combines all the summaries into a single final summary with all the key ideas. This prompt is usually the same as the one in step 3 since the idea is basically the same; combine a list of summaries into one shorter summary. However, you might need the freedom to diverge the two prompts to accommodate specific needs for special kinds of documents or special summaries.
 
 <figure>
-<img alt="Reduce: consolidate all summaries into a single final summary" src="assets/images/summarize-long-doc/reduce.png" />
+<img alt="Reduce: consolidate all summaries into a single final summary" src="/assets/images/summarize-long-doc/reduce.png" />
 </figure>
 
 And that’s it! You now have a short summary of the most important points of a large document. But before you start processing your whole documentation, there are a few important notes you need to consider:

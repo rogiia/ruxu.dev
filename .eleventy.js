@@ -9,17 +9,31 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 
 const striptags = require("striptags");
+const optimizeImages = require("./config/optimize-images");
+const cssPipeline = require("./config/css");
+const minifyHtml = require("./config/minify-html");
+
+const site = require("./_data/site.json");
+const { excerpt } = require("./config/excerpt");
 
 module.exports = function(eleventyConfig) {
-  // Copy the `assets` and `styles` folders to the output
+  // Copy the `assets` folder to the output (styles are built by config/css.js)
   eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy("styles");
   eleventyConfig.addPassthroughCopy("scripts");
   eleventyConfig.addPassthroughCopy("manifest.json");
   eleventyConfig.addPassthroughCopy("service-worker.js");
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("ads.txt");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
+
+  // Critical CSS (inlined), Prism (inlined when needed) and the hashed main.css
+  eleventyConfig.addPlugin(cssPipeline);
+
+  // Convert local content images to AVIF/WebP with responsive srcsets
+  eleventyConfig.addPlugin(optimizeImages);
+
+  // Minify the final HTML (registered after the image transform on purpose)
+  eleventyConfig.addPlugin(minifyHtml);
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -35,35 +49,87 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
   });
 
+  // Turns a site-relative path (with or without leading slash) into an absolute URL.
+  eleventyConfig.addFilter('absoluteSiteUrl', (path) => {
+    if (!path) {
+      return site.url + '/';
+    }
+    if (/^https?:\/\//.test(path)) {
+      return path;
+    }
+    return site.url + '/' + path.replace(/^\/+/, '');
+  });
+
+  eleventyConfig.addFilter('hasCategoryPage', (categories, slug) => {
+    return (categories || []).some(category => category.data.slug === slug);
+  });
+
+  // Falls back to a humanized slug ("ai-security" -> "Ai security") for
+  // categories that don't have their own page.
   eleventyConfig.addFilter('getCategoryTitle', (categories, slug) => {
-    for (const category of categories) {
+    for (const category of categories || []) {
       if (category.data.slug === slug) {
         return category.data.title;
       }
     }
-    return '';
+    if (!slug) {
+      return '';
+    }
+    const humanized = String(slug).replace(/-/g, ' ');
+    return humanized.charAt(0).toUpperCase() + humanized.slice(1);
   });
 
-  eleventyConfig.addFilter('readTime', (content) => {
-    const words = content.split(' ');
-    const numWords = words.length;
-    const readTime = Math.round(numWords / 120);
-    return readTime;
+  // Estimated reading time in minutes (never less than 1).
+  // Only prose counts as words; code blocks and images get a flat allowance
+  // because they are skimmed rather than read.
+  const WORDS_PER_MINUTE = 230;
+  const SECONDS_PER_CODE_BLOCK = 20;
+  const SECONDS_PER_IMAGE = 10;
+  eleventyConfig.addFilter('readTime', (html) => {
+    const source = String(html || '');
+    const prose = striptags(source.replace(/<(pre|script|style)\b[\s\S]*?<\/\1>/gi, ' '));
+    const words = prose.split(/\s+/).filter(Boolean).length;
+    const codeBlocks = (source.match(/<pre\b/gi) || []).length;
+    const images = (source.match(/<img\b/gi) || []).length;
+    const seconds = (words / WORDS_PER_MINUTE) * 60
+      + codeBlocks * SECONDS_PER_CODE_BLOCK
+      + images * SECONDS_PER_IMAGE;
+    return Math.max(1, Math.ceil(seconds / 60));
   });
 
-  eleventyConfig.addFilter('truncText', (text) => {
-    text = text.replace(/<figure>.*<\/figure>/gms, '');
-    return striptags(text).substr(0, 280);
-  });
+  // Plain-text summary cut at a word boundary (adds an ellipsis only when cut).
+  eleventyConfig.addFilter('truncText', (text) => excerpt(text, 280));
 
   eleventyConfig.addFilter('hasLinkTag', (tags) => {
-    return tags.indexOf('link') !== -1;
+    return Array.isArray(tags) && tags.indexOf('link') !== -1;
   });
 
   eleventyConfig.addFilter('hasProjectTag', (tags) => {
-    return tags.indexOf('project') !== -1;
+    return Array.isArray(tags) && tags.indexOf('project') !== -1;
   });
 
+
+  // Fail the build when a post uses a category that has no category page, or
+  // when its tags don't include its category (it would be missing from the
+  // category listing). Projects are exempt: they don't have category pages.
+  eleventyConfig.addCollection("categoryValidation", (collectionApi) => {
+    const known = new Set(collectionApi.getFilteredByTag("category").map(page => page.data.slug));
+    const errors = [];
+    for (const item of collectionApi.getFilteredByTag("post")) {
+      const { category, tags } = item.data;
+      if (!category) {
+        errors.push(`${item.inputPath}: missing "category"`);
+      } else if (!known.has(category)) {
+        errors.push(`${item.inputPath}: unknown category "${category}" (known: ${[...known].join(", ")})`);
+      } else if (!tags.includes(category)) {
+        errors.push(`${item.inputPath}: tags must include the category "${category}"`);
+      }
+    }
+    if (errors.length) {
+      throw new Error("Invalid post categories:\n  " + errors.join("\n  "));
+    }
+    return [];
+  });
 
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
@@ -82,7 +148,9 @@ module.exports = function(eleventyConfig) {
     html: true,
     linkify: true
   }).use(markdownItAnchor, {
-    slugify: eleventyConfig.getFilter("slugify")
+    slugify: eleventyConfig.getFilter("slugify"),
+    // Wraps the heading text in a link to its own id, so sections can be shared.
+    permalink: markdownItAnchor.permalink.headerLink()
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
@@ -97,7 +165,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_site/404/index.html');
+        const content_404 = fs.readFileSync('_site/404.html');
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.

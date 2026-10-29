@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] GPT-OSS"
 category: ai
 externalUrl: https://openai.com/index/introducing-gpt-oss/
 date: 2025-08-06
 tags:
-  - post
-  - link
   - ai
 ---
 

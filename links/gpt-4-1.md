@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] GPT 4.1"
 category: ai
 externalUrl: https://openai.com/index/gpt-4-1/
 date: 2025-04-14
 tags:
-  - post
-  - link
   - ai
 ---
 

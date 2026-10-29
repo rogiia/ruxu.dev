@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: How to disable the download button in SageMaker Studio
 subtitle: If you want to ensure that your data scientists' cloud environment is secure from data leaks, remove this feature from SageMaker
-category: mlops
-image: assets/images/security.webp
+image: /assets/images/security.webp
 date: 2022-08-06
-tags:
-  - post
-  - article
-  - mlops
 ---
 
 <figure>

@@ -1,9 +1,8 @@
 ---
-title: Blog | Roger Oriol
-pagination:
-  data: collections.article
-  size: 4
-  alias: articles
+title: Page not found | Roger Oriol
+permalink: /404.html
+eleventyExcludeFromCollections: true
+sitemap: false
 ---
 
 <!DOCTYPE html>
@@ -12,25 +11,24 @@ pagination:
     <meta charset="utf-8">
     <title>{{title}}</title>
 
-    <base href="/">
-
     <meta name="viewport"
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Discussing topics on web development, data architecture, software architecture and much more.">
     <meta name="theme-color" content="#33d">
+    <meta name="robots" content="noindex">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="{{title}}">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <!-- Imports an icon to represent the document. -->
-    <!-- <link rel="icon" href="assets/icons/icon_24.png" type="image/x-icon"> -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/firefox/firefox-general-32-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/chrome/chrome-favicon-16-16.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/icons/apple/apple-launchericon-192-192.png">
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"></noscript>
+    <link rel="preload" href="/assets/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
     <!--<script type="module" src="dist/main.umd.js"></script>-->
     <script>
@@ -42,6 +40,13 @@ pagination:
     </script>
 
     <style>
+      @font-face {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/assets/fonts/roboto-latin-400-normal.woff2") format("woff2");
+      }
       body {
         background: #fefefe;
         color: #222;

@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] Claude Fable 5 and Mythos 5"
 category: ai
 externalUrl: https://www.anthropic.com/news/claude-fable-5-mythos-5
 date: 2026-06-09
 tags:
-  - post
-  - link
   - ai
 ---
 

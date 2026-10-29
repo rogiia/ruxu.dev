@@ -1,14 +1,9 @@
 ---
-layout: article.njk
 title: "Build A Basic AI Agent From Scratch: Tools"
 subtitle: ""
-category: ai
 image: ""
 date: 2026-05-31
 tags:
-  - post
-  - article
-  - ai
   - agents
 ---
 

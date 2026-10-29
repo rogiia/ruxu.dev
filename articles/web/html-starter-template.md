@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "How to Write a Good index.html File"
 subtitle: ""
-category: web
 image: ""
 date: 2025-03-23
-tags:
-  - post
-  - article
-  - web
 ---
 
 Every web developer has been there: you're starting a new project and staring at an empty file called `index.html`. You try to remember, which tags were meant to go in the `<head>` again? Which are the meta tags that are best practice and which ones are deprecated?

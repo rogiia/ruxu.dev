@@ -1,5 +1,4 @@
 ---
-layout: project.njk
 title: "HTML Starter Template"
 subtitle: "A comprehensive index.html template (with comments) to get quickly up and running when starting a new web site."
 category: web
@@ -8,7 +7,6 @@ github_link: "https://github.com/rogiia/html-starter-template"
 project_link: ""
 date: 2025-03-22
 tags:
-  - project
   - web
 ---
 

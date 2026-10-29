@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Quote] How we built our multi-agent research system"
 category: ai
 externalUrl: https://www.anthropic.com/engineering/built-multi-agent-research-system
 date: 2025-06-15
 tags:
-  - post
-  - link
   - ai
 ---
 

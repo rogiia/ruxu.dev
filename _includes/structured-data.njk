@@ -1,0 +1,72 @@
+{%- set sdUrl = page.url | absoluteSiteUrl %}
+{%- if ogType == 'article' %}
+{%- set sdCategoryTitle = collections.category | getCategoryTitle(category) %}
+{%- set sdHasCategoryCrumb = ('article' in tags) and (collections.category | hasCategoryPage(category)) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": {{ sdUrl | dump | safe }} },
+  "url": {{ sdUrl | dump | safe }},
+  "headline": {{ title | dump | safe }},
+  {%- if metaDescription %}
+  "description": {{ metaDescription | dump | safe }},
+  {%- endif %}
+  {%- if category %}
+  "articleSection": {{ (sdCategoryTitle or category) | dump | safe }},
+  {%- endif %}
+  "image": {{ (image or site.defaultImage) | absoluteSiteUrl | dump | safe }},
+  "datePublished": {{ date | htmlDateString | dump | safe }},
+  "dateModified": {{ (modified or date) | htmlDateString | dump | safe }},
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author.name | dump | safe }},
+    "url": {{ site.author.url | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.author.name | dump | safe }},
+    "url": {{ site.author.url | dump | safe }}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ site.url | dump | safe }} }
+    {%- if sdHasCategoryCrumb %},
+    { "@type": "ListItem", "position": 2, "name": {{ sdCategoryTitle | dump | safe }}, "item": {{ ('articles/' + category + '/') | absoluteSiteUrl | dump | safe }} }
+    {%- endif %},
+    { "@type": "ListItem", "position": {{ 3 if sdHasCategoryCrumb else 2 }}, "name": {{ title | dump | safe }} }
+  ]
+}
+</script>
+{%- elif page.url == '/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": {{ (site.url + '/#website') | dump | safe }},
+      "url": {{ (site.url + '/') | dump | safe }},
+      "name": {{ site.name | dump | safe }},
+      "description": {{ site.description | dump | safe }},
+      "inLanguage": "en",
+      "publisher": { "@id": {{ (site.url + '/#person') | dump | safe }} }
+    },
+    {
+      "@type": "Person",
+      "@id": {{ (site.url + '/#person') | dump | safe }},
+      "name": {{ site.author.name | dump | safe }},
+      "url": {{ (site.url + '/') | dump | safe }},
+      "jobTitle": "Software Architect",
+      "sameAs": {{ site.author.sameAs | dump | safe }}
+    }
+  ]
+}
+</script>
+{%- endif %}

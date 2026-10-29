@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "The Rise Of Reasoner Models: Scaling Test-Time Compute"
 subtitle: ""
-category: ai
-image: "assets/images/test-time-compute/thethinker-sm.jpg"
+image: "/assets/images/test-time-compute/thethinker-sm.jpg"
 date: 2025-01-11
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>

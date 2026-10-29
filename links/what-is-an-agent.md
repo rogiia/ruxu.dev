@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] Artificial Intelligence 3E: Foundations of computational agents"
 category: ai
 externalUrl: https://artint.info/3e/html/ArtInt3e.Ch1.S1.html
 date: 2025-06-07
 tags:
-  - post
-  - link
   - ai
 ---
 

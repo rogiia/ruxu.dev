@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] The Llama 4 herd"
 category: ai
 externalUrl: https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 date: 2025-04-06
 tags:
-  - post
-  - link
   - ai
 ---
 

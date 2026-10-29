@@ -1,14 +1,9 @@
 ---
-layout: article.njk
 title: "Build a Basic AI Agent From Scratch: Session Management"
 subtitle: ""
-category: ai
 image: ""
 date: 2026-10-18
 tags:
-  - post
-  - article
-  - ai
   - agents
 ---
 

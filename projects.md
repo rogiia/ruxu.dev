@@ -2,6 +2,7 @@
 layout: base.njk
 title: "🚧 My Projects"
 slug: recent
+subtitle: "Open source and personal projects built by Roger Oriol."
 pagination:
   data: collections.project
   size: 10
@@ -9,21 +10,21 @@ pagination:
   reverse: true
 ---
 
-<h2>{{title}}</h2>
+<h1 class="page-heading">{{title}}</h1>
 <ul class="blog-entry-list">
   {%- for post in posts -%}
   <li class="blog-entry-summary">
     <div>
-      <div class="blog-entry-summary-content" tabindex="0" role="link" onclick="window.location='{{post.url}}'" aria-label="{{post.data.title}}">
+      <div class="blog-entry-summary-content" onclick="window.location='{{post.url}}'">
         {% if post.data.image %}
-        <img width="200" src="{{post.data.image}}" alt="{{post.data.title}}" title="{{post.data.title}}" onclick="window.location='{{post.url}}'" />
+        <img width="200" sizes="150px" src="{{post.data.image}}" alt="" onclick="window.location='{{post.url}}'" />
         {% endif %}
         <div class="blog-entry-summary-title">
-          <h2>{{post.data.title}}</h2>
+          <h2><a href="{{post.url}}">{{post.data.title}}</a></h2>
           {% if post.data.subtitle %}
             <p>{{post.data.subtitle}}</p>
           {% else %}
-            <p>{{post.content | truncText}}...</p>
+            <p>{{ post.content | truncText }}</p>
           {% endif %}
         </div>
       </div>

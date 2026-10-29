@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Quote] Hype Coding - Steve Krouse"
 category: ai
 externalUrl: https://x.com/stevekrouse/status/1928818847764582698
 date: 2025-06-04
 tags:
-  - post
-  - link
   - ai
 ---
 

@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] Access Fable 5 and Mythos 5 suspended"
 category: ai
 externalUrl: https://www.anthropic.com/news/fable-mythos-access
 date: 2026-06-13
 tags:
-  - post
-  - link
   - ai
 ---
 

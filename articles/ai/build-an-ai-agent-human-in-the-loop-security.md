@@ -1,14 +1,9 @@
 ---
-layout: article.njk
 title: "Build A Basic AI Agent From Scratch: Human in the Loop & Security"
 subtitle: ""
-category: ai
 image: ""
 date: 2026-06-16
 tags:
-  - post
-  - article
-  - ai
   - agents
 ---
 

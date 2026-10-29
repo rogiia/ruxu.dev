@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "What to Expect for AI in 2024?"
 subtitle: ""
-category: ai
-image: "assets/images/ai.jpg"
+image: "/assets/images/ai.jpg"
 date: 2024-01-29
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>

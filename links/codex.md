@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] OpenAI Codex CLI"
 category: ai
 externalUrl: https://github.com/openai/codex
 date: 2025-04-16
 tags:
-  - post
-  - link
   - ai
 ---
 

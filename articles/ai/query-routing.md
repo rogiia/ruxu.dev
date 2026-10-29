@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "Build an Advanced RAG App: Query Routing"
 subtitle: ""
-category: ai
-image: "assets/images/query-routing/query-routing-cover.png"
+image: "/assets/images/query-routing/query-routing-cover.png"
 date: 2024-09-12
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>
@@ -82,7 +76,7 @@ For this example, we will showcase a RAG application with a query router. The ap
 First, we will prepare the two documents for retrieval. Let's first load the paper about RAG:
 
 <figure>
-<img alt="Load RAG paper" src="assets/images/query-routing/load-rag-paper.png" />
+<img alt="Load RAG paper" src="/assets/images/query-routing/load-rag-paper.png" />
 </figure>
 
 #### Load the recipe
@@ -90,7 +84,7 @@ First, we will prepare the two documents for retrieval. Let's first load the pap
 We will also load the recipe for chicken gyros. This recipe from Mike Price is hosted in tasty.co. We will use a simple web page reader to read the page and store it as text.
 
 <figure>
-<img alt="Load chicken gyros recipe" src="assets/images/query-routing/load-recipe.png" />
+<img alt="Load chicken gyros recipe" src="/assets/images/query-routing/load-recipe.png" />
 </figure>
 
 #### Save the documents in a vector store
@@ -98,7 +92,7 @@ We will also load the recipe for chicken gyros. This recipe from Mike Price is h
 After getting the two documents we will use for our RAG application, we will split them into chunks and we will convert them to embeddings using BGE small, an open-source embeddings model. We will store those embeddings in two vector stores, ready to be questioned.
 
 <figure>
-<img alt="Create Vector Stores" src="assets/images/query-routing/create-vector-stores.png" />
+<img alt="Create Vector Stores" src="/assets/images/query-routing/create-vector-stores.png" />
 </figure>
 
 #### Search engine tool
@@ -106,7 +100,7 @@ After getting the two documents we will use for our RAG application, we will spl
 Besides the two documents, the third option for our router will be to search for information using a Google Search. For this example I have created my own Google Search API keys. If you want this part to work, you should use your own API keys.
 
 <figure>
-<img alt="Define Google Search Tool" src="assets/images/query-routing/google-search-tool.png" />
+<img alt="Define Google Search Tool" src="/assets/images/query-routing/google-search-tool.png" />
 </figure>
 
 #### Create the Query Router
@@ -116,7 +110,7 @@ Next, using the LlamaIndex library, we create a Query Engine Tool for each of th
 Finally, we create a Router Query Engine, also with Llama. We give the three query engine tools to this router. Also, we define the selector. This is the component that will make the choice of which tool to use. For this example, we are using an LLM Selector. It's also a single selector, meaning it will only choose one tool, never more than one, to answer the query.
 
 <figure>
-<img alt="Create the query router" src="assets/images/query-routing/create-query-router.png" />
+<img alt="Create the query router" src="/assets/images/query-routing/create-query-router.png" />
 </figure>
 
 #### Run our RAG application!
@@ -124,7 +118,7 @@ Finally, we create a Router Query Engine, also with Llama. We give the three que
 Our Query Router is now ready. Let's test it with a question about RAG. We provided a vector store loaded with information from a paper on RAG techniques. The Query Router should choose to retrieve context from that vector store in order to answer the question. Let's see what happens:
 
 <figure>
-<img alt="Question the app about RAG" src="assets/images/query-routing/rag-question.png" />
+<img alt="Question the app about RAG" src="/assets/images/query-routing/rag-question.png" />
 </figure>
 
 Our RAG application answers correctly. Along with the answer, we can see that it provides the sources from where it got the information from. As we expected, it used the vector store with the RAG paper.
@@ -132,25 +126,25 @@ Our RAG application answers correctly. Along with the answer, we can see that it
 We can also see an attribute "selector_result" in the result. In this attribute we can inspect which one of the tools the Query Router chose, as well as the reason that the LLM gave to choose that option.
 
 <figure>
-<img alt="Selector result for the RAG question" src="assets/images/query-routing/rag-selection-reason.png" />
+<img alt="Selector result for the RAG question" src="/assets/images/query-routing/rag-selection-reason.png" />
 </figure>
 
 Now let's ask it a culinary question. The recipe used to create the second vector store is for chicken gyros. Our application should be able to answer which are the ingredients needed for that recipe based on that source. 
 
 <figure>
-<img alt="Question the app about the recipe" src="assets/images/query-routing/recipe-question.png" />
+<img alt="Question the app about the recipe" src="/assets/images/query-routing/recipe-question.png" />
 </figure>
 
 As we can see, the chicken gyros recipe vector store was correctly chosen to answer that question.
 
 <figure>
-<img alt="Selector result for the recipe question" src="assets/images/query-routing/recipe-selection-reason.png" />
+<img alt="Selector result for the recipe question" src="/assets/images/query-routing/recipe-selection-reason.png" />
 </figure>
 
 Finally, let's ask it a question that can be answered with a Google Search.
 
 <figure>
-<img alt="Question for Google Search" src="assets/images/query-routing/google-question.png" />
+<img alt="Question for Google Search" src="/assets/images/query-routing/google-question.png" />
 </figure>
 
 ### Conclusion

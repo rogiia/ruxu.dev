@@ -1,0 +1,9 @@
+{
+  "layout": "article.njk",
+  "category": "ai",
+  "tags": [
+    "post",
+    "article",
+    "ai"
+  ]
+}

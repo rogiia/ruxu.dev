@@ -1,3 +1,4 @@
+/* Non-critical styles: loaded asynchronously after first paint. */
 ul.pagination li {
   list-style-type: none;
   margin-left: 0.5rem;
@@ -8,18 +9,6 @@ ul.pagination li:first-child {
 }
 ul.pagination li a.current {
   font-weight: bold;
-}
-.category-tag {
-  display: inline-block;
-  background-color: #246ea0;
-  padding: 2px 8px;
-  border-radius: 1em;
-  color: white;
-  cursor: pointer;
-  margin-bottom: 2px;
-  font-weight: bold;
-  line-height: 1.5;
-  font-size: 0.8em;
 }
 article h2 {
   font-size: 2em;
@@ -33,15 +22,17 @@ article h4 {
   font-size: 1.3em;
   font-weight: 500;
 }
-article img {
-  width: 100%;
-}
 article > ul {
   text-align: justify;
   font-size: 1em;
 }
 pre {
   overflow: scroll;
+}
+figure {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  text-align: center;
 }
 blockquote {
   background: #f9f9f9;
@@ -61,15 +52,13 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
-share-button button, share-button a {
-  color: #615b5b;
-  border: none;
-  background: none;
-  cursor: pointer;
-  margin-right: 0.5em;
+.more {
+  color: #1a1a1a;
+  font-weight: bold;
 }
-share-button button:hover {
-  color: #000;
+.more:hover,
+.more:visited {
+  color: #5a5a5a;
 }
 ::selection {
   color: white;
@@ -78,25 +67,12 @@ share-button button:hover {
 
 /* dark mode */
 @media (prefers-color-scheme: dark) {
-  span.read-time, time {
-    color: #ddbebe;
-  }
-  a {
-    color: #99d;
-  }
-  a:hover, a:visited,
-  li.blog-entry-summary a:hover, li.blog-entry-summary a:visited {
-    color: #dd99dd;
-  }
-  share-button button, share-button a,
-  share-button a:hover, share-button a:visited,
-  .more, .more:hover, .more:visited {
+  .more,
+  .more:hover,
+  .more:visited {
     color: #ddd;
   }
   blockquote {
     background: #444;
-  }
-  header #icons img {
-    filter: invert(1);
   }
 }

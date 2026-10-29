@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] GPT-5"
 category: ai
 externalUrl: https://openai.com/gpt-5/
 date: 2025-08-07
 tags:
-  - post
-  - link
   - ai
 ---
 

@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] AGI is not multimodal"
 category: ai
 externalUrl: https://thegradient.pub/agi-is-not-multimodal/
 date: 2025-06-05
 tags:
-  - post
-  - link
   - ai
 ---
 

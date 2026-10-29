@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "Understanding LLMs: Mixture of Experts"
 subtitle: ""
-category: ai
-image: "assets/images/collaboration.jpg"
+image: "/assets/images/collaboration.jpg"
 date: 2024-03-30
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>
@@ -22,7 +16,7 @@ Unlike the Transformers architecture, Mixture of Experts is not a new idea. Stil
 A Mixture of Experts is a model with a sparse layer and a router. The experts reside in the sparse layer, and they are models unconnected between them. Each expert specializes in a specific task. The router is a gating mechanism that learns and decides which experts is best equipped to deal with the input. The simplicity of this concept allows this architecture to work with any type of model. In this article we will focus on Transformers where the experts are feed-forward networks, but they might as well be RNNs, SVMs or even Linear Regression models. Another possibility is Hierarchical experts, which use multiple routers at different levels.
 
 <figure>
-<img alt="Mixture of Experts Architecture" height="600" src="assets/images/moe.svg" />
+<img alt="Mixture of Experts Architecture" height="600" src="/assets/images/moe.svg" />
 </figure>
 
 The big advantage of this kind of architecture is conditional computation. Every single inference doesn’t need to use all the model’s weights. The gating mechanism is trained to choose the top k experts and route the input only to those. This choice also has a degree of random noise, which prevents overloading the most popular experts and ensures that other experts are also trained on all kinds of data.
@@ -34,7 +28,7 @@ The first sentence of this article stated that Mixture of Experts is not a recen
 Even though the idea is old, the Mixture of Experts architecture benefits a lot of today’s computing power and horizontal scaling. MoE models can easily be distributed between multiple devices. Since not all weights of the model activate on each inference, each expert can be located to a different device, which frees up the devices with other experts to handle other tasks in parallel.
 
 <figure>
-<img alt="Mixture of Experts Communication Example" src="assets/images/moe-comm.svg" />
+<img alt="Mixture of Experts Communication Example" src="/assets/images/moe-comm.svg" />
 </figure>
 
 ### How many experts should a model have?
@@ -54,7 +48,7 @@ In the other hand, Mixture of Experts are great for high-throughput scenarios, a
 A paper by Google named GShard explored solving device underutilization to successfully scale a MoE horizontally across many devices. They replicated all non-MoE layers between all devices, but MoE layers had a different expert for each device. They also introduced the concept of expert capacity, which is the maximum number of tokens an expert can take before it is considered overflowed, after when the next expert in line would take over.
 
 <figure>
-<img alt="Mixture of Experts Capacity Factor Example" src="assets/images/moe_capacity_factor.svg" />
+<img alt="Mixture of Experts Capacity Factor Example" src="/assets/images/moe_capacity_factor.svg" />
 </figure>
 
 Another paper, named Switch Transformers, looked at techniques to reduce communication costs between devices and reduce training instabilities. To optimize parallelism, they proposed to use a single expert approach and reduce the capacity factor to almost all tokens being equally divided between the experts (with some small wiggle room for over choosing a specific expert). Switch Transformers also proposed to only use bfloat16 precision for expert layers and use full precision for other layers. This stabilizes training, as other layers like the router need better precision due to an exponentiating function, while still reducing communication costs between experts.

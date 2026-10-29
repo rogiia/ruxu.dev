@@ -1,14 +1,8 @@
 ---
-layout: article.njk
 title: "Build an Advanced RAG App: Query Rewriting"
 subtitle: ""
-category: ai
-image: "assets/images/query-rewriting/query-rewriting-cover.jpg"
+image: "/assets/images/query-rewriting/query-rewriting-cover.jpg"
 date: 2024-06-30
-tags:
-  - post
-  - article
-  - ai
 ---
 
 <figure>
@@ -53,7 +47,7 @@ We have stablished that there are different strategies of Query Rewriting depend
 This is simple query rewriting. Zero-shot refers to the prompt engineering technique of giving examples of the task to the LLM, which in this case we give none.
 
 <figure>
-<img alt="Zero-shot Query Rewriting" src="assets/images/query-rewriting/zero-shot.png" />
+<img alt="Zero-shot Query Rewriting" src="/assets/images/query-rewriting/zero-shot.png" />
 </figure>
 
 #### Few-shot Query Rewriting
@@ -61,7 +55,7 @@ This is simple query rewriting. Zero-shot refers to the prompt engineering techn
 For a slightly better result at the cost of using a few more tokens per rewrite, we can give some examples of how we want the rewrite to be done.
 
 <figure>
-<img alt="Few-shot Query Rewriting" src="assets/images/query-rewriting/few-shot.png" />
+<img alt="Few-shot Query Rewriting" src="/assets/images/query-rewriting/few-shot.png" />
 </figure>
 
 #### Trainable rewriter
@@ -74,7 +68,7 @@ Or we can also use an open-source model that has already been trained by somebod
 If the user query contains multiple questions, this can make context retrieval tricky. Each question probably needs different information, and we are not going to get all of it using all the questions as basis for information retrieval. To solve this problem, we can decompose the input into multiple sub-queries, and perform retrieval for each of the sub-queries.
 
 <figure>
-<img alt="Sub-queries Query Rewriting" src="assets/images/query-rewriting/subqueries.png" />
+<img alt="Sub-queries Query Rewriting" src="/assets/images/query-rewriting/subqueries.png" />
 </figure>
 
 #### Step-back prompt
@@ -82,7 +76,7 @@ If the user query contains multiple questions, this can make context retrieval t
 Many questions can be a bit too complex for the RAG pipeline’s retrieval to grasp the multiple levels of information needed to answer them. For these cases, it can be helpful to generate multiple additional queries to use for retrieval. These queries will be more generic than the original query. This will enable the RAG pipeline to retrieve relevant information on multiple levels.
 
 <figure>
-<img alt="Step-back prompt Query Rewriting" src="assets/images/query-rewriting/step-back.png" />
+<img alt="Step-back prompt Query Rewriting" src="/assets/images/query-rewriting/step-back.png" />
 </figure>
 
 #### HyDE
@@ -90,10 +84,10 @@ Many questions can be a bit too complex for the RAG pipeline’s retrieval to gr
 Another method to improve how queries are matched with contexts chunks are Hypothetical Document Embeddings or HyDE. Sometimes, questions and answers are not that semantically similar, which can cause the RAG pipeline to miss critical context chunks in the retrieval stage. However, even if the query is semantically different, a response to the query should be semantically similar to another response to the same query. The HyDE method consists of creating hypothetical context chunks that answer the query and using them to match the real context that will help the LLM answer.
 
 <figure>
-<img alt="HyDE Query Rewriting" src="assets/images/query-rewriting/hyde1.png" />
+<img alt="HyDE Query Rewriting" src="/assets/images/query-rewriting/hyde1.png" />
 </figure>
 <figure>
-<img alt="HyDE Query Rewriting comparison" src="assets/images/query-rewriting/hyde2.png" />
+<img alt="HyDE Query Rewriting comparison" src="/assets/images/query-rewriting/hyde2.png" />
 </figure>
 
 ### Example: RAG with vs without Query Rewriting
@@ -101,7 +95,7 @@ Another method to improve how queries are matched with contexts chunks are Hypot
 Taking the RAG pipeline from the last article, “How to build a basic RAG app”, we will introduce Query Rewriting into it. We will ask it a question a bit more advanced than last time and observe whether the response improves with Query Rewriting over without it. First, let’s build the same RAG pipeline. Only this time, I’ll only use the top document returned from the vector database to be less forgiving to missed documents.
 
 <figure>
-<img alt="Example without Query Rewriting" src="assets/images/query-rewriting/example-woqr.png" />
+<img alt="Example without Query Rewriting" src="/assets/images/query-rewriting/example-woqr.png" />
 </figure>
 
 The response is good and based on the context, but it got caught up in me asking about evaluation and missed that I was specifically asking for tools. Therefore, the context used does have information on some benchmarks, but it misses the next chunk of information that talks about tools.
@@ -109,7 +103,7 @@ The response is good and based on the context, but it got caught up in me asking
 Now, let’s implement the same RAG pipeline but now with Query Rewriting. As well as the query rewriting prompts, we have already seen in the previous examples, I’ll be using a Pydantic parser to extract and iterate over the generated alternative queries.
 
 <figure>
-<img alt="Example with Query Rewriting" src="assets/images/query-rewriting/example-wqr.png" />
+<img alt="Example with Query Rewriting" src="/assets/images/query-rewriting/example-wqr.png" />
 </figure>
  
 The new query now matches with the chunk of information I wanted to get my answer from, giving the LLM a better chance of answering a much better response for my question.

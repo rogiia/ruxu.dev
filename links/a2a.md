@@ -1,12 +1,9 @@
 ---
-layout: link.njk
 title: "[Link] The Agent2Agent Protocol"
 category: ai
 externalUrl: https://google.github.io/A2A/
 date: 2025-04-12
 tags:
-  - post
-  - link
   - ai
 ---
 

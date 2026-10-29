@@ -1,18 +1,12 @@
 ---
-layout: article.njk
 title: How to install (and keep) extensions in SageMaker Studio
 subtitle: Enhance the experience of your data scientists with SageMaker Studio extensions
-category: mlops
-image: assets/images/puzzle_sm.webp
+image: /assets/images/puzzle_sm.webp
 date: 2022-08-07
-tags:
-  - post
-  - article
-  - mlops
 ---
 
 <figure>
-<img style="aspect-ratio: 3/2" alt="Puzzle painting" src="assets/images/puzzle.webp" />
+<img style="aspect-ratio: 3/2" alt="Puzzle painting" src="/assets/images/puzzle.webp" />
 </figure>
 
 If you have been using SageMaker Studio, you might have missed some features that other modern IDEs have. As you might know, SageMaker Studio is built on top of the JupyterLab IDE. It extends it, integrating with other SageMaker resources. But this doesn't include any features for developer experience.
@@ -22,7 +16,7 @@ To enrich SageMaker Studio with the features that you need, you can install exte
 You can use the **Extension Manager**, found in the menu on the left. It has a puzzle piece icon. Inside the Extension Manager, you can check the already installed extensions. You can also search for extensions if you write the name in the search bar. When you have found the extension you want to install, click the "Install" button. After installing all the needed extensions, restart the JupyterLab by refreshing the page. You should now be able to use them.
 
 <figure style="display: flex">
-<img alt="SageMaker Studio Extension Manager" src="assets/images/sagemaker_extensions.webp" style="width: 450px; margin: 0 auto" width="450" height="750" />
+<img alt="SageMaker Studio Extension Manager" src="/assets/images/sagemaker_extensions.webp" style="width: 450px; margin: 0 auto" width="450" height="750" />
 </figure>
 
 Another method to install extensions is using the **Jupyter CLI tool**. For this method, you will need to know the name of the extension beforehand. Open a terminal inside the Studio and type the following commands:
